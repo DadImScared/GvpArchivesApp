@@ -1,0 +1,59 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "preset": "jest-expo",
+    "testMatch": [
+      "**/__tests__/**/*.[tj]s?(x)",
+      "**/?(*.)(spec|test).[tj]s?(x)"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "!node_modules/react-runtime"
+    ]
+  },
+  "dependencies": {
+    "@expo/samples": "2.1.1",
+    "expo": "^31.0.2",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-navigation": "^2.18.2"
+  },
+  "devDependencies": {
+    "@types/expo": "^31.0.3",
+    "@types/jest": "^23.3.10",
+    "@types/react": "^16.7.17",
+    "babel-preset-expo": "^5.0.0",
+    "jest": "^23.6.0",
+    "jest-expo": "^31.0.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2"
+  },
+  "private": true
+}
