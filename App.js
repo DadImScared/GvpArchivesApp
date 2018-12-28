@@ -1,7 +1,19 @@
-import React from 'react';
+import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import { Provider } from "react-redux";
+import { applyMiddleware, compose, createStore } from "redux";
+import { enableBatching } from "redux-batched-actions";
+import thunk from "redux-thunk";
+import reducers from "./reducers"
+
+const store = createStore(
+  enableBatching(reducers),
+  compose(
+    applyMiddleware(thunk)
+  )
+);
 
 export default class App extends React.Component {
   state = {
@@ -19,10 +31,12 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
-        </View>
+        <Provider store={store}>
+          <View style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            <AppNavigator />
+          </View>
+        </Provider>
       );
     }
   }

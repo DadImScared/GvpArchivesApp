@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loading reducer initialState 1`] = `Object {}`;
+
+exports[`loading reducer loading end 1`] = `
+Object {
+  "LOADING_ID": false,
+}
+`;
+
+exports[`loading reducer loading start 1`] = `
+Object {
+  "LOADING_ID": true,
+}
+`;

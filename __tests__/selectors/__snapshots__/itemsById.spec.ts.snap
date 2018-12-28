@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`itemsById selectors getItemsById 1`] = `
+Object {
+  "123": Object {
+    "category": "book",
+    "item_id": "123",
+    "link": "1234",
+    "title": "here",
+  },
+}
+`;

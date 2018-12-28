@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`itemsByCategory selector should getItemsByCategory 1`] = `
+Object {
+  "isLoading": false,
+  "nextPage": false,
+  "results": Array [
+    Object {
+      "category": "book",
+      "item_id": "123",
+      "link": "link",
+      "title": "title",
+    },
+  ],
+  "timeToLive": 0,
+}
+`;

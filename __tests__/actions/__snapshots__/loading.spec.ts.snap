@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loading actions loadingEnd 1`] = `
+Object {
+  "meta": undefined,
+  "payload": "LOADING_ID",
+  "type": "loading/LOADING_END",
+}
+`;
+
+exports[`loading actions loadingStart 1`] = `
+Object {
+  "meta": undefined,
+  "payload": "LOADING_ID",
+  "type": "loading/LOADING_START",
+}
+`;

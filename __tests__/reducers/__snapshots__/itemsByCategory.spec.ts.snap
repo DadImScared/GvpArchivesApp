@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`itemsByCategory reducer should add items by category 1`] = `
+Object {
+  "book": Object {
+    "nextPage": false,
+    "results": Array [
+      "1",
+      "2",
+    ],
+    "timeToLive": 1531271417608,
+  },
+}
+`;
+
+exports[`itemsByCategory reducer should update items 1`] = `
+Object {
+  "book": Object {
+    "nextPage": false,
+    "results": Array [
+      "1234",
+      "12",
+      "1",
+      "2",
+    ],
+    "timeToLive": 12345,
+  },
+}
+`;

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`itemsByCategory addItemsByCategory 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "category": "book",
+    "itemIds": Array [
+      "1",
+      "2",
+    ],
+    "nextPage": false,
+  },
+  "type": "itemsByCategory/ADD_ITEMS_BY_CATEGORY",
+}
+`;
+
+exports[`itemsByCategory updateItemsbyCategory 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "category": "book",
+    "itemIds": Array [
+      "1",
+      "2",
+    ],
+    "nextPage": false,
+  },
+  "type": "itemsByCategory/UPDATE_ITEMS",
+}
+`;
