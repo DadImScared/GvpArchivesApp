@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardHeader should render 1`] = `
+<View
+  header={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "borderBottomWidth": null,
+      "borderRadius": 2,
+      "flexDirection": "row",
+      "paddingBottom": 15,
+      "paddingLeft": 15,
+      "paddingRight": 15,
+      "paddingTop": 15,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "alignSelf": "stretch",
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#000",
+          "fontFamily": "System",
+          "fontSize": 16,
+        }
+      }
+      uppercase={false}
+    >
+      Card title here
+    </Text>
+    <Text
+      note={true}
+      style={
+        Object {
+          "color": "#808080",
+          "fontFamily": "System",
+          "fontSize": 14,
+          "fontWeight": "200",
+          "marginRight": 20,
+        }
+      }
+      uppercase={false}
+    >
+      Songs
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`CardHeader should render with extraSubHeader 1`] = `
+<View
+  header={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "borderBottomWidth": null,
+      "borderRadius": 2,
+      "flexDirection": "row",
+      "paddingBottom": 15,
+      "paddingLeft": 15,
+      "paddingRight": 15,
+      "paddingTop": 15,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "alignSelf": "stretch",
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#000",
+          "fontFamily": "System",
+          "fontSize": 16,
+        }
+      }
+      uppercase={false}
+    >
+      Card title here
+    </Text>
+    <Text
+      note={true}
+      style={
+        Object {
+          "color": "#808080",
+          "fontFamily": "System",
+          "fontSize": 14,
+          "fontWeight": "200",
+          "marginRight": 20,
+        }
+      }
+      uppercase={false}
+    >
+      Songs
+      Continued text
+    </Text>
+  </View>
+</View>
+`;

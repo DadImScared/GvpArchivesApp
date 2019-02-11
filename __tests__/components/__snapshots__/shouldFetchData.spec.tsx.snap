@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shouldFetchData should fetchData from initial state 1`] = `
+Object {
+  "fetchData": [Function],
+  "fetchNextPage": [Function],
+  "isLoading": false,
+  "nextPage": false,
+  "results": Array [],
+  "timeToLive": 0,
+}
+`;

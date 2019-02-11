@@ -17,7 +17,7 @@ interface ItemsByCategory {
   timeToLive?: number;
 }
 
-interface ItemsByCategoryData {
+export interface ItemsByCategoryData {
   results: Item[];
   isLoading: boolean;
   nextPage: boolean | string;
@@ -72,7 +72,7 @@ export const getItemsByCategory = () => {
         getItemsById,
         getLoading(ITEMS_BY_CATEGORY, "navigation.state.params.category")
       ],
-      ({ results, nextPage = false, timeToLive = 0 }, items, isLoading): ItemsByCategoryData => ({
+      ({ results = [], nextPage = false, timeToLive = 0 }, items, isLoading): ItemsByCategoryData => ({
         isLoading,
         nextPage,
         timeToLive,

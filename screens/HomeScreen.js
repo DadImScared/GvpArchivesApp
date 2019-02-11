@@ -15,7 +15,7 @@ import MyComponent from '../components/MyComponent';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: "Hi",
   };
 
   render() {

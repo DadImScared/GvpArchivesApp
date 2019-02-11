@@ -4,7 +4,7 @@
     <HTMLCodeStyleSettings>
       <option name="HTML_DO_NOT_INDENT_CHILDREN_OF" value="html,body,thead,tbody,tfoot,script" />
     </HTMLCodeStyleSettings>
-    <TypeScriptCodeStyleSettings version="0">
+    <TypeScriptCodeStyleSettings version="1">
       <option name="FORCE_SEMICOLON_STYLE" value="true" />
       <option name="SPACES_WITHIN_IMPORTS" value="true" />
     </TypeScriptCodeStyleSettings>
@@ -25,6 +25,7 @@
       <option name="RIGHT_MARGIN" value="120" />
       <indentOptions>
         <option name="INDENT_SIZE" value="2" />
+        <option name="CONTINUATION_INDENT_SIZE" value="2" />
       </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="XML">

@@ -1,28 +1,32 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+// import { Platform } from 'react-native';
+import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 
-import TabBarIcon from '../components/TabBarIcon';
+// import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import SideBar from "../components/SafeAreaSideBar";
+import ItemsByCategory from "../screens/ItemsByCategory";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  ItemsByCategory
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
+  title: "Hi",
+  // tabBarLabel: 'Home',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
 };
 
 const LinksStack = createStackNavigator({
@@ -30,13 +34,13 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-    />
-  ),
+  // tabBarLabel: 'Links',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+  //   />
+  // ),
 };
 
 const SettingsStack = createStackNavigator({
@@ -45,16 +49,24 @@ const SettingsStack = createStackNavigator({
 
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
-    />
-  ),
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+  //   />
+  // ),
 };
 
-export default createBottomTabNavigator({
+const ItemsByCategoryStack = createStackNavigator({
+  ItemsByCategory
+});
+
+ItemsByCategoryStack.navigationOptions = () => ({
+  title: "items by category"
+});
+
+export default createDrawerNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack,
-});
+  SettingsStack
+}, {contentComponent: (props => <SideBar {...props} />)});
