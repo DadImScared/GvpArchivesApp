@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as renderer from "react-test-renderer";
 
+jest.mock("../../components/Icon", () => "Icon");
+
 import { IRenderItemProps, RenderItem } from "../../components/RenderItem";
 
 let props: IRenderItemProps;

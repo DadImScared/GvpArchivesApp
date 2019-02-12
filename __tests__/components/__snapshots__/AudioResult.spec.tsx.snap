@@ -131,7 +131,7 @@ exports[`AudioResult should render 1`] = `
             "elevation": 2,
             "flexDirection": "row",
             "height": 45,
-            "justifyContent": "center",
+            "justifyContent": "space-between",
             "margin": 4,
             "opacity": 1,
             "paddingBottom": 6,
@@ -148,11 +148,16 @@ exports[`AudioResult should render 1`] = `
           style={
             Object {
               "color": "white",
+              "marginLeft": 16,
+              "marginRight": 16,
             }
           }
         >
           Play
         </Text>
+        <Icon
+          name="play"
+        />
       </View>
       <View
         accessible={true}
@@ -178,7 +183,7 @@ exports[`AudioResult should render 1`] = `
             "elevation": 2,
             "flexDirection": "row",
             "height": 45,
-            "justifyContent": "center",
+            "justifyContent": "space-between",
             "margin": 4,
             "opacity": 1,
             "paddingBottom": 6,
