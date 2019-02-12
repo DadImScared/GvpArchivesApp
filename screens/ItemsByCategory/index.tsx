@@ -19,7 +19,7 @@ export interface ItemsByCategoryProps extends NavigationScreenProps, ItemsByCate
 export class ItemsByCategory extends React.Component<ItemsByCategoryProps> {
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
-    title: routes[navigation.getParam("category")]
+    title: routes[navigation.getParam("category")].displayName
   });
 
   renderItem = ({ item }: any) => {

@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as renderer from "react-test-renderer";
 
+jest.mock("../../components/Icon", () => "Icon");
 import { CardHeader } from "../../components/CardHeader";
 
 describe("CardHeader", () => {

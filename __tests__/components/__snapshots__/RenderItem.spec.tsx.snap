@@ -59,18 +59,41 @@ exports[`RenderItem should render custom component 1`] = `
           }
         }
       >
-        <Text
+        <View
           style={
-            Object {
-              "color": "#000",
-              "fontFamily": "System",
-              "fontSize": 16,
-            }
+            Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "width": "100%",
+              },
+            ]
           }
-          uppercase={false}
         >
-          itemtitle
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "width": "80%",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            itemtitle
+          </Text>
+          <Icon
+            name="music-note"
+            type="MaterialCommunityIcons"
+          />
+        </View>
         <Text
           note={true}
           style={
@@ -278,18 +301,41 @@ exports[`RenderItem should render default component 1`] = `
           }
         }
       >
-        <Text
+        <View
           style={
-            Object {
-              "color": "#000",
-              "fontFamily": "System",
-              "fontSize": 16,
-            }
+            Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "width": "100%",
+              },
+            ]
           }
-          uppercase={false}
         >
-          itemtitle
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "width": "80%",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            itemtitle
+          </Text>
+          <Icon
+            name="open-book"
+            type="Entypo"
+          />
+        </View>
         <Text
           note={true}
           style={

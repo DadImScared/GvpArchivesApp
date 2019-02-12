@@ -2,26 +2,75 @@ import * as React from "react";
 
 import { NavigationScreenProps, StackActions } from "react-navigation";
 
-import { Container, Content } from "native-base";
+import { Container, Content, NativeBase } from "native-base";
 
 import MenuItem from "./MenuItem";
 
 export interface IRouteComponent {
-  component: any;
+  component?: any;
   displayName: string;
+  icon: NativeBase.Icon;
 }
 
 export type IRoute = string | IRouteComponent;
 
-export const routes: { [key: string]: IRoute } = {
-  bhagavatpatrika: "Bhagavat Patrika",
-  book: "Books",
-  harikatha: "Harikatha",
-  harmonistmagazine: "Harmonist Magazine",
-  harmonistmonthly: "Harmonist Monthly",
-  lecture: "Lectures",
-  movie: "Movies",
-  song: "Songs"
+export const routes: { [key: string]: IRouteComponent } = {
+  bhagavatpatrika: {
+    displayName: "Bhagavat Patrika",
+    icon: {
+      name: "open-book",
+      type: "Entypo"
+    }
+  },
+  book: {
+    displayName: "Books",
+    icon: {
+      name: "book",
+      type: "FontAwesome"
+    }
+  },
+  harikatha: {
+    displayName: "Harikatha",
+    icon: {
+      name: "open-book",
+      type: "Entypo"
+    }
+  },
+  harmonistmagazine: {
+    displayName: "Harmonist Magazine",
+    icon: {
+      name: "open-book",
+      type: "Entypo"
+    }
+  },
+  harmonistmonthly: {
+    displayName: "Harmonist Monthly",
+    icon: {
+      name: "open-book",
+      type: "Entypo"
+    }
+  },
+  lecture: {
+    displayName: "Lectures",
+    icon: {
+      name: "headphones",
+      type: "MaterialCommunityIcons"
+    }
+  },
+  movie: {
+    displayName: "Movies",
+    icon: {
+      name: "video",
+      type: "Entypo"
+    }
+  },
+  song: {
+    displayName: "Songs",
+    icon: {
+      name: "music-note",
+      type: "MaterialCommunityIcons"
+    }
+  }
 };
 
 const routesArray = Object.entries(routes);
@@ -88,14 +137,14 @@ export class SideBar extends React.Component<NavigationScreenProps, { activeRout
     return nextRoute !== currentRoute || (this.state.activeRoute !== nextState.activeRoute);
   }
 
-  renderRow = ([to, displayName]: [string, IRoute]) => {
+  renderRow = ([to, route]: [string, IRouteComponent]) => {
     return (
       <MenuItem
         key={to}
         active={to === this.state.activeRoute}
         navigateRoute={this.navigateRoute}
         to={to}
-        display={displayName}
+        display={route.displayName}
       />
     );
   };

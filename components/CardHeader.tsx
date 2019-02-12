@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { Body, CardItem, Text } from "native-base";
+import { Body, CardItem, Text, View } from "native-base";
+import Icon from "./Icon";
 import { routes } from "./SideBar";
 
 interface IProps {
@@ -11,8 +12,11 @@ interface IProps {
 export const CardHeader: React.FunctionComponent<IProps> = ({ item, extraSubHeader }) => (
   <CardItem header={true}>
     <Body>
-      <Text>{item.title.trim()}</Text>
-      <Text note={true}>{routes[item.category]}{extraSubHeader ? `${extraSubHeader}` : null}</Text>
+      <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%", alignItems: "center" }}>
+        <Text style={{ width: "80%" }}>{item.title.trim()}</Text>
+        <Icon {...routes[item.category].icon} />
+      </View>
+      <Text note={true}>{routes[item.category].displayName}{extraSubHeader ? `${extraSubHeader}` : null}</Text>
     </Body>
   </CardItem>
 );
