@@ -84,122 +84,128 @@ exports[`AudioResult should render 1`] = `
   <View
     footer={true}
     style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#fff",
-        "borderBottomWidth": null,
-        "borderRadius": 2,
-        "flexDirection": "row",
-        "paddingBottom": 10,
-        "paddingLeft": 15,
-        "paddingRight": 15,
-        "paddingTop": 10,
-      }
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "borderBottomWidth": null,
+          "borderRadius": 2,
+          "flexDirection": "row",
+          "paddingBottom": 10,
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "paddingTop": 10,
+        },
+        Object {
+          "justifyContent": "space-between",
+        },
+      ]
     }
   >
     <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "alignItems": "center",
-          "alignSelf": "center",
-          "flex": 1,
+          "alignSelf": "flex-start",
+          "backgroundColor": "#007aff",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "borderWidth": undefined,
+          "elevation": 2,
           "flexDirection": "row",
+          "height": 45,
+          "justifyContent": "space-between",
+          "margin": 4,
+          "minWidth": "30%",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": undefined,
+          "shadowOffset": undefined,
+          "shadowOpacity": undefined,
+          "shadowRadius": undefined,
         }
       }
     >
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Text
         style={
           Object {
-            "alignItems": "center",
-            "alignSelf": "flex-start",
-            "backgroundColor": "#007aff",
-            "borderBottomWidth": null,
-            "borderColor": "#007aff",
-            "borderLeftWidth": null,
-            "borderRadius": 5,
-            "borderRightWidth": null,
-            "borderTopWidth": null,
-            "borderWidth": undefined,
-            "elevation": 2,
-            "flexDirection": "row",
-            "height": 45,
-            "justifyContent": "space-between",
-            "margin": 4,
-            "opacity": 1,
-            "paddingBottom": 6,
-            "paddingTop": 6,
-            "shadowColor": undefined,
-            "shadowOffset": undefined,
-            "shadowOpacity": undefined,
-            "shadowRadius": undefined,
-            "width": "30%",
+            "color": "white",
+            "marginLeft": 16,
+            "marginRight": 16,
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "color": "white",
-              "marginLeft": 16,
-              "marginRight": 16,
-            }
-          }
-        >
-          Play
-        </Text>
-        <Icon
-          name="play"
-        />
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        Play
+      </Text>
+      <Icon
+        name="play"
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "backgroundColor": "#62B1F6",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "borderWidth": undefined,
+          "elevation": 2,
+          "flexDirection": "row",
+          "height": 45,
+          "justifyContent": "space-between",
+          "margin": 4,
+          "minWidth": "30%",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": undefined,
+          "shadowOffset": undefined,
+          "shadowOpacity": undefined,
+          "shadowRadius": undefined,
+        }
+      }
+    >
+      <Text
         style={
           Object {
-            "alignItems": "center",
-            "alignSelf": "flex-start",
-            "backgroundColor": "#62B1F6",
-            "borderBottomWidth": null,
-            "borderColor": "#007aff",
-            "borderLeftWidth": null,
-            "borderRadius": 5,
-            "borderRightWidth": null,
-            "borderTopWidth": null,
-            "borderWidth": undefined,
-            "elevation": 2,
-            "flexDirection": "row",
-            "height": 45,
-            "justifyContent": "space-between",
-            "margin": 4,
-            "opacity": 1,
-            "paddingBottom": 6,
-            "paddingTop": 6,
-            "shadowColor": undefined,
-            "shadowOffset": undefined,
-            "shadowOpacity": undefined,
-            "shadowRadius": undefined,
-            "width": "30%",
+            "color": "white",
+            "marginLeft": 16,
+            "marginRight": 16,
           }
         }
       >
-        <Text>
-          Playlist
-        </Text>
-      </View>
+         Add To Playlist
+      </Text>
+      <Icon
+        name="playlist-plus"
+        type="MaterialCommunityIcons"
+      />
     </View>
   </View>
 </View>
