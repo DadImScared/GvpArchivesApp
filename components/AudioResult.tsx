@@ -6,6 +6,7 @@ import { StyleSheet, Text } from "react-native";
 import { Item } from "../reducers/itemsById";
 import CardHeader from "./CardHeader";
 import Icon from "./Icon";
+import { routes } from "./SideBar";
 
 export interface IAudioResultProps {
   item: Item;
@@ -30,7 +31,7 @@ export const AudioResult: React.FC<IAudioResultProps> = ({ item }) => (
   <Card>
     <CardHeader item={item} />
     <CardItem style={{ justifyContent: "space-between" }} footer={true}>
-      <Button primary={true} style={styles.button}>
+      <Button style={{...styles.button, backgroundColor: routes[item.category].icon.style.color}}>
         <Text style={styles.buttonText}>
           Play
         </Text>
