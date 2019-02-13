@@ -143,7 +143,7 @@ exports[`AudioResult should render 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "flex-start",
-          "backgroundColor": "#007aff",
+          "backgroundColor": "#ab47bc",
           "borderBottomWidth": null,
           "borderColor": "#007aff",
           "borderLeftWidth": null,

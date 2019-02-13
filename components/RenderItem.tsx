@@ -13,7 +13,7 @@ const CATEGORIES: { [key: string]: any | string } = {
   harikatha: "Harikatha",
   harmonistmagazine: "Harmonist Magazine",
   harmonistmonthly: "Harmonist Monthly",
-  lecture: "Lecture",
+  lecture: AudioResult,
   movie: "Movies",
   song: AudioResult,
 };
