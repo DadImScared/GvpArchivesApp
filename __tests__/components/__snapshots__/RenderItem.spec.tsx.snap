@@ -90,7 +90,12 @@ exports[`RenderItem should render custom component 1`] = `
             itemtitle
           </Text>
           <Icon
-            name="music-note"
+            name="music"
+            style={
+              Object {
+                "color": "#ab47bc",
+              }
+            }
             type="MaterialCommunityIcons"
           />
         </View>
@@ -333,6 +338,11 @@ exports[`RenderItem should render default component 1`] = `
           </Text>
           <Icon
             name="open-book"
+            style={
+              Object {
+                "color": "#ff8f00",
+              }
+            }
             type="Entypo"
           />
         </View>

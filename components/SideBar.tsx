@@ -12,13 +12,12 @@ export interface IRouteComponent {
   icon: NativeBase.Icon;
 }
 
-export type IRoute = string | IRouteComponent;
-
 export const routes: { [key: string]: IRouteComponent } = {
   bhagavatpatrika: {
     displayName: "Bhagavat Patrika",
     icon: {
       name: "open-book",
+      style: { color: "#ffc107" },
       type: "Entypo"
     }
   },
@@ -26,6 +25,9 @@ export const routes: { [key: string]: IRouteComponent } = {
     displayName: "Books",
     icon: {
       name: "book",
+      style: {
+        color: "#009688"
+      },
       type: "FontAwesome"
     }
   },
@@ -33,6 +35,9 @@ export const routes: { [key: string]: IRouteComponent } = {
     displayName: "Harikatha",
     icon: {
       name: "open-book",
+      style: {
+        color: "#f4511e"
+      },
       type: "Entypo"
     }
   },
@@ -40,6 +45,9 @@ export const routes: { [key: string]: IRouteComponent } = {
     displayName: "Harmonist Magazine",
     icon: {
       name: "open-book",
+      style: {
+        color: "#9c27b0"
+      },
       type: "Entypo"
     }
   },
@@ -47,6 +55,9 @@ export const routes: { [key: string]: IRouteComponent } = {
     displayName: "Harmonist Monthly",
     icon: {
       name: "open-book",
+      style: {
+        color: "#ff8f00"
+      },
       type: "Entypo"
     }
   },
@@ -54,6 +65,9 @@ export const routes: { [key: string]: IRouteComponent } = {
     displayName: "Lectures",
     icon: {
       name: "headphones",
+      style: {
+        color: "#43a047"
+      },
       type: "MaterialCommunityIcons"
     }
   },
@@ -61,13 +75,19 @@ export const routes: { [key: string]: IRouteComponent } = {
     displayName: "Movies",
     icon: {
       name: "video",
+      style: {
+        color: "#f44336"
+      },
       type: "Entypo"
     }
   },
   song: {
     displayName: "Songs",
     icon: {
-      name: "music-note",
+      name: "music",
+      style: {
+        color: "#ab47bc"
+      },
       type: "MaterialCommunityIcons"
     }
   }
@@ -138,13 +158,23 @@ export class SideBar extends React.Component<NavigationScreenProps, { activeRout
   }
 
   renderRow = ([to, route]: [string, IRouteComponent]) => {
+    const routeStyle = route.icon.style || {};
     return (
       <MenuItem
         key={to}
         active={to === this.state.activeRoute}
         navigateRoute={this.navigateRoute}
         to={to}
-        display={route.displayName}
+        route={{
+          ...route,
+          icon: {
+            ...route.icon,
+            style: {
+              ...routeStyle,
+              color: to === this.state.activeRoute ? "#3f51b5" : routeStyle.color || "black"
+            }
+          }
+        }}
       />
     );
   };

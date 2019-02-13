@@ -14,35 +14,75 @@ exports[`MenuItem should render 1`] = `
 >
   <View
     button={true}
+    icon={true}
     onPress={[Function]}
     selected={false}
     style={
       Object {
         "alignItems": "center",
         "backgroundColor": "transparent",
-        "borderBottomWidth": 0.5,
+        "borderBottomWidth": null,
         "borderColor": "#c9c9c9",
         "flexDirection": "row",
+        "height": 44,
+        "justifyContent": "center",
         "marginLeft": 16,
-        "paddingBottom": 13,
-        "paddingRight": 16,
-        "paddingTop": 13,
+        "paddingBottom": null,
+        "paddingRight": null,
+        "paddingTop": null,
       }
     }
   >
-    <Text
+    <View
       style={
         Object {
-          "alignSelf": "center",
-          "color": "#000",
-          "fontFamily": "System",
-          "fontSize": 16,
+          "alignItems": null,
+          "alignSelf": null,
+          "borderBottomWidth": 0.5,
+          "borderColor": "#c9c9c9",
+          "flex": 1,
+          "height": 44,
+          "justifyContent": "center",
         }
       }
-      uppercase={false}
     >
-      Books
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 17,
+            "marginLeft": null,
+            "marginRight": 10,
+          }
+        }
+        uppercase={false}
+      >
+        Books
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "borderBottomWidth": 0.5,
+          "borderColor": "#c9c9c9",
+          "flex": 0,
+          "flexDirection": "row",
+          "height": 44,
+          "justifyContent": "flex-end",
+          "paddingBottom": null,
+          "paddingLeft": null,
+          "paddingRight": 15,
+          "paddingTop": null,
+        }
+      }
+    >
+      <Icon
+        name="book"
+      />
+    </View>
   </View>
 </View>
 `;

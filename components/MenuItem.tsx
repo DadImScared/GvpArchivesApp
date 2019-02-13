@@ -1,12 +1,13 @@
 import * as React from "react";
 
-import { ListItem, Text } from "native-base";
+import { Body, ListItem, Right, Text } from "native-base";
 
-import { IRoute } from "./SideBar";
+import Icon from "./Icon";
+import { IRouteComponent } from "./SideBar";
 
 export interface IMenuItemProps {
   to: string;
-  display: IRoute;
+  route: IRouteComponent;
   navigateRoute: (to: string) => void;
   active: boolean;
 }
@@ -16,7 +17,6 @@ export class MenuItem extends React.Component<IMenuItemProps> {
   navigateRoute = () => {
     const { to, navigateRoute } = this.props;
     navigateRoute(to);
-
   };
 
   shouldComponentUpdate(nextProps: IMenuItemProps) {
@@ -25,9 +25,21 @@ export class MenuItem extends React.Component<IMenuItemProps> {
   }
 
   render() {
-    const { display, active } = this.props;
+    const { route, active } = this.props;
     return (
-      <ListItem selected={active} onPress={this.navigateRoute} button={true}><Text>{display}</Text></ListItem>
+      <ListItem
+        icon={true}
+        selected={active}
+        onPress={this.navigateRoute}
+        button={true}
+      >
+        <Body>
+          <Text>{route.displayName}</Text>
+        </Body>
+        <Right>
+          <Icon {...route.icon} />
+        </Right>
+      </ListItem>
     );
   }
 }

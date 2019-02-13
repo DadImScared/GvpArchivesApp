@@ -57,7 +57,12 @@ exports[`CardHeader should render 1`] = `
         Card title here
       </Text>
       <Icon
-        name="music-note"
+        name="music"
+        style={
+          Object {
+            "color": "#ab47bc",
+          }
+        }
         type="MaterialCommunityIcons"
       />
     </View>
@@ -137,7 +142,12 @@ exports[`CardHeader should render with extraSubHeader 1`] = `
         Card title here
       </Text>
       <Icon
-        name="music-note"
+        name="music"
+        style={
+          Object {
+            "color": "#ab47bc",
+          }
+        }
         type="MaterialCommunityIcons"
       />
     </View>

@@ -83,7 +83,12 @@ exports[`AudioResult should render 1`] = `
           title1
         </Text>
         <Icon
-          name="music-note"
+          name="music"
+          style={
+            Object {
+              "color": "#ab47bc",
+            }
+          }
           type="MaterialCommunityIcons"
         />
       </View>
