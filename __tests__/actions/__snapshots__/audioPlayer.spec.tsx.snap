@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`audioPlayer should set a playlist to start playing 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "currentIndex": 0,
+    "items": Array [
+      "1",
+      "2",
+    ],
+    "name": "my playlist",
+    "playerType": "playlist",
+    "playing": true,
+    "showPlayer": true,
+  },
+  "type": "audio/SET_PLAYLIST",
+}
+`;
+
+exports[`audioPlayer should set a song to start playing 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "playerType": "song",
+    "playing": true,
+    "showPlayer": true,
+    "songName": "song name",
+    "songUrl": "songurl",
+  },
+  "type": "audio/SET_SONG",
+}
+`;
+
+exports[`audioPlayer should set playing false 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "playing": false,
+  },
+  "type": "audio/SET_PLAYING",
+}
+`;
+
+exports[`audioPlayer should show audio player 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "showPlayer": true,
+  },
+  "type": "audio/SHOW_PLAYER",
+}
+`;
+
+exports[`audioPlayer should toggle audio playing 1`] = `
+Object {
+  "meta": undefined,
+  "payload": undefined,
+  "type": "audio/TOGGLE_PLAYING",
+}
+`;
+
+exports[`audioPlayer should update playlist currently playing item 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "newIndex": 2,
+  },
+  "type": "audio/UPDATE_CURRENT_INDEX",
+}
+`;

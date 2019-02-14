@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`audioPlayer reducer should set playing to true 1`] = `
+Object {
+  "currentIndex": 0,
+  "currentSongName": "",
+  "currentSongUrl": "",
+  "items": Array [],
+  "name": "",
+  "playerType": "song",
+  "playing": true,
+  "showPlayer": false,
+}
+`;
+
+exports[`audioPlayer reducer should set playlist 1`] = `
+Object {
+  "currentIndex": 0,
+  "currentSongName": "",
+  "currentSongUrl": "",
+  "items": Array [
+    "1",
+    "2",
+  ],
+  "name": "my playlist",
+  "playerType": "playlist",
+  "playing": true,
+  "showPlayer": true,
+}
+`;
+
+exports[`audioPlayer reducer should set showPlayer to true 1`] = `
+Object {
+  "currentIndex": 0,
+  "currentSongName": "",
+  "currentSongUrl": "",
+  "items": Array [],
+  "name": "",
+  "playerType": "song",
+  "playing": false,
+  "showPlayer": true,
+}
+`;
+
+exports[`audioPlayer reducer should set song 1`] = `
+Object {
+  "currentIndex": 0,
+  "currentSongName": "songname",
+  "currentSongUrl": "songurl",
+  "items": Array [],
+  "name": "",
+  "playerType": "song",
+  "playing": true,
+  "showPlayer": true,
+}
+`;
+
+exports[`audioPlayer reducer should toggle playing to true 1`] = `
+Object {
+  "currentIndex": 0,
+  "currentSongName": "",
+  "currentSongUrl": "",
+  "items": Array [],
+  "name": "",
+  "playerType": "song",
+  "playing": true,
+  "showPlayer": false,
+}
+`;
+
+exports[`audioPlayer reducer should update song playing in playlist 1`] = `
+Object {
+  "currentIndex": 1,
+  "currentSongName": "",
+  "currentSongUrl": "",
+  "items": Array [],
+  "name": "",
+  "playerType": "song",
+  "playing": false,
+  "showPlayer": false,
+}
+`;
