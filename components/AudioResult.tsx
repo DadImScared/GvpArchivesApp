@@ -4,13 +4,16 @@ import { Button, Card, CardItem } from "native-base";
 import { StyleSheet, Text } from "react-native";
 
 import { Item } from "../reducers/itemsById";
+import { IAudioPlayerState } from "./AudioPlayer/Provider";
 import CardHeader from "./CardHeader";
 import Icon from "./Icon";
 import { routes } from "./SideBar";
+import { withAudioPlayer } from "./withAudioPlayer";
 
 export interface IAudioResultProps {
   item: Item;
   [key: string]: any;
+  audio: IAudioPlayerState;
 }
 
 const styles: any = StyleSheet.create({
@@ -27,22 +30,40 @@ const styles: any = StyleSheet.create({
   }
 });
 
-export const AudioResult: React.FC<IAudioResultProps> = ({ item }) => (
-  <Card>
-    <CardHeader item={item} />
-    <CardItem style={{ justifyContent: "space-between" }} footer={true}>
-      <Button style={{...styles.button, backgroundColor: routes[item.category].icon.style.color}}>
-        <Text style={styles.buttonText}>
-          Play
-        </Text>
-        <Icon name={"play"} />
-      </Button>
-      <Button info={true} style={styles.button}>
-        <Text style={styles.buttonText}> Add To Playlist</Text>
-        <Icon type={"MaterialCommunityIcons"} name={"playlist-plus"} />
-      </Button>
-    </CardItem>
-  </Card>
-);
+export class AudioResult extends React.Component<IAudioResultProps> {
 
-export default AudioResult;
+  onPlay = () => {
+    const { item, audio } = this.props;
+    audio.setSong(item.link, item.title);
+  };
+
+  shouldComponentUpdate(nextProps: Readonly<IAudioResultProps>, nextState: Readonly<{}>, nextContext: any): boolean {
+    return this.props.item !== nextProps.item;
+  }
+
+  render() {
+    const { item } = this.props;
+    return (
+      <Card>
+        <CardHeader item={item} />
+        <CardItem style={{ justifyContent: "space-between" }} footer={true}>
+          <Button
+            onPress={this.onPlay}
+            style={{...styles.button, backgroundColor: routes[item.category].icon.style.color}}
+          >
+            <Text style={styles.buttonText}>
+              Play
+            </Text>
+            <Icon name={"play"} />
+          </Button>
+          <Button info={true} style={styles.button}>
+            <Text style={styles.buttonText}> Add To Playlist</Text>
+            <Icon type={"MaterialCommunityIcons"} name={"playlist-plus"} />
+          </Button>
+        </CardItem>
+      </Card>
+    );
+  }
+}
+
+export default withAudioPlayer<IAudioResultProps>(AudioResult);

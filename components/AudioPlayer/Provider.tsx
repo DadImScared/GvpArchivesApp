@@ -98,7 +98,7 @@ export class AudioPlayerProvider extends React.Component<{}, IAudioPlayerState> 
     }
     const { sound } = await (Audio.Sound as any).createAsync(
       { uri },
-      { shouldPlay: false },
+      { shouldPlay: true },
       this.onPlaybackStatusUpdate
     );
 
@@ -245,7 +245,7 @@ export class AudioPlayerProvider extends React.Component<{}, IAudioPlayerState> 
         this.state.playbackInstancePosition
       )} / ${this.getMMSSFromMillis(this.state.playbackInstanceDuration)}`;
     }
-    return "";
+    return "00:00 / 00:00";
   };
 
   render() {
