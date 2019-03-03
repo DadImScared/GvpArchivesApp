@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title should render 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Marquee
+    bounce={false}
+    duration={5000}
+    loop={true}
+  >
+    song name here
+  </Marquee>
+</View>
+`;

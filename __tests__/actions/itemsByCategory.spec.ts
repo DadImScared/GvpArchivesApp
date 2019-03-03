@@ -1,6 +1,5 @@
 import axios from "axios";
 import { addItemsByCategory, getItemsByCategory, updateItemsByCategory } from "../../actions/itemsByCategory";
-import { initialAudioPlayerState } from "../../reducers/audioPlayer";
 
 jest.mock("axios");
 const payload = { category: "book", itemIds: ["1", "2"], nextPage: false};
@@ -26,7 +25,6 @@ describe("itemsByCategory", () => {
       });
       const dispatch = jest.fn();
       const getState = () => ({
-        audioPlayer: initialAudioPlayerState,
         itemsByCategory: {},
         itemsById: {},
         loading: {
