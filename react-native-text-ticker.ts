@@ -14,5 +14,8 @@ declare module "react-native-text-ticker" {
     useNativeDriver?: boolean;
   }
 
-  export default class TextMarquee extends React.PureComponent<ITextMarqueeProps> {}
+  export default class TextMarquee extends React.PureComponent<ITextMarqueeProps> {
+    stopAnimation(): void;
+    startAnimation(delay?: number): void;
+  }
 }

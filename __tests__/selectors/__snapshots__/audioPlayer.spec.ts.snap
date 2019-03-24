@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`audioPlayer selectors should getAudioPlayerData 1`] = `
+Object {
+  "playing": false,
+  "seekTo": 0,
+  "uri": "song url",
+}
+`;
+
+exports[`audioPlayer selectors should getButtonGroupData 1`] = `
+Object {
+  "playing": false,
+}
+`;
+
+exports[`audioPlayer selectors should getSeekerData 1`] = `
+Object {
+  "playing": false,
+  "sliderPosition": 0.0044444444444444444,
+  "timestamp": "00:02 / 07:30",
+}
+`;
+
+exports[`audioPlayer selectors should getTitleData 1`] = `
+Object {
+  "songName": "song name",
+}
+`;

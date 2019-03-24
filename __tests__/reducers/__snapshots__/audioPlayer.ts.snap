@@ -5,10 +5,13 @@ Object {
   "currentIndex": 0,
   "currentSongName": "",
   "currentSongUrl": "",
+  "duration": 0,
   "items": Array [],
   "name": "",
   "playerType": "song",
   "playing": true,
+  "position": 0,
+  "seekTo": 0,
   "showPlayer": false,
 }
 `;
@@ -18,6 +21,7 @@ Object {
   "currentIndex": 0,
   "currentSongName": "",
   "currentSongUrl": "",
+  "duration": 0,
   "items": Array [
     "1",
     "2",
@@ -25,6 +29,8 @@ Object {
   "name": "my playlist",
   "playerType": "playlist",
   "playing": true,
+  "position": 0,
+  "seekTo": 0,
   "showPlayer": true,
 }
 `;
@@ -34,10 +40,13 @@ Object {
   "currentIndex": 0,
   "currentSongName": "",
   "currentSongUrl": "",
+  "duration": 0,
   "items": Array [],
   "name": "",
   "playerType": "song",
   "playing": false,
+  "position": 0,
+  "seekTo": 0,
   "showPlayer": true,
 }
 `;
@@ -47,10 +56,13 @@ Object {
   "currentIndex": 0,
   "currentSongName": "songname",
   "currentSongUrl": "songurl",
+  "duration": 0,
   "items": Array [],
   "name": "",
   "playerType": "song",
   "playing": true,
+  "position": 0,
+  "seekTo": 0,
   "showPlayer": true,
 }
 `;
@@ -60,10 +72,13 @@ Object {
   "currentIndex": 0,
   "currentSongName": "",
   "currentSongUrl": "",
+  "duration": 0,
   "items": Array [],
   "name": "",
   "playerType": "song",
   "playing": true,
+  "position": 0,
+  "seekTo": 0,
   "showPlayer": false,
 }
 `;
@@ -73,10 +88,13 @@ Object {
   "currentIndex": 1,
   "currentSongName": "",
   "currentSongUrl": "",
+  "duration": 0,
   "items": Array [],
   "name": "",
   "playerType": "song",
   "playing": false,
+  "position": 0,
+  "seekTo": 0,
   "showPlayer": false,
 }
 `;

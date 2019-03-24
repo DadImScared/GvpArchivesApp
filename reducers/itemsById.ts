@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { ActionType } from "typesafe-actions";
 
-import actions from "../actions";
+import * as actions from "../actions";
 import { ADD_ITEMS } from "../actiontypes/itemsById";
 import { IReducerState } from "./index";
 

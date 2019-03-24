@@ -32,11 +32,11 @@ Object {
 }
 `;
 
-exports[`audioPlayer should set playing false 1`] = `
+exports[`audioPlayer should set playing to true 1`] = `
 Object {
   "meta": undefined,
   "payload": Object {
-    "playing": false,
+    "playing": true,
   },
   "type": "audio/SET_PLAYING",
 }

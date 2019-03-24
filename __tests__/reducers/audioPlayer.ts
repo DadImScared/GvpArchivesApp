@@ -1,13 +1,14 @@
+import { audioPlayer } from "../../actions";
+import reducer, { getInitialAudioPlayerState } from "../../reducers/audioPlayer";
 
-import actions from "../../actions";
-import reducer, { initialAudioPlayerState } from "../../reducers/audioPlayer";
+const initialAudioPlayerState = getInitialAudioPlayerState();
 
 describe("audioPlayer reducer", () => {
   it("should toggle playing to true", () => {
     expect(
       reducer(
         initialAudioPlayerState,
-        actions.audioPlayer.togglePlaying()
+        audioPlayer.togglePlaying()
       )
     ).toMatchSnapshot();
   });
@@ -16,7 +17,7 @@ describe("audioPlayer reducer", () => {
     expect(
       reducer(
         initialAudioPlayerState,
-        actions.audioPlayer.setPlaying(true)
+        audioPlayer.setPlaying(true)
       )
     ).toMatchSnapshot();
   });
@@ -25,7 +26,7 @@ describe("audioPlayer reducer", () => {
     expect(
       reducer(
         initialAudioPlayerState,
-        actions.audioPlayer.showPlayer(true)
+        audioPlayer.showPlayer(true)
       )
     ).toMatchSnapshot();
   });
@@ -34,7 +35,7 @@ describe("audioPlayer reducer", () => {
     expect(
       reducer(
         initialAudioPlayerState,
-        actions.audioPlayer.setPlaylist("my playlist", ["1", "2"])
+        audioPlayer.setPlaylist("my playlist", ["1", "2"])
       )
     ).toMatchSnapshot();
   });
@@ -43,7 +44,7 @@ describe("audioPlayer reducer", () => {
     expect(
       reducer(
         initialAudioPlayerState,
-        actions.audioPlayer.updateIndex(1)
+        audioPlayer.updateIndex(1)
       )
     ).toMatchSnapshot();
   });
@@ -52,7 +53,7 @@ describe("audioPlayer reducer", () => {
     expect(
       reducer(
         initialAudioPlayerState,
-        actions.audioPlayer.setSong("songurl", "songname")
+        audioPlayer.setSong("songurl", "songname")
       )
     ).toMatchSnapshot();
   });

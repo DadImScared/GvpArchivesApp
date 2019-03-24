@@ -1,5 +1,5 @@
 import moment from "moment";
-import actions from "../../actions";
+import { itemsByCategory } from "../../actions";
 import reducer from "../../reducers/itemsByCategory";
 
 describe("itemsByCategory reducer", () => {
@@ -19,7 +19,7 @@ describe("itemsByCategory reducer", () => {
     expect(
         reducer(
             undefined,
-            actions.itemsByCategory.addItemsByCategory({ category: "book", itemIds: ["1", "2"], nextPage: false})
+            itemsByCategory.addItemsByCategory({ category: "book", itemIds: ["1", "2"], nextPage: false})
         )
     ).toMatchSnapshot();
   });
@@ -34,7 +34,7 @@ describe("itemsByCategory reducer", () => {
                 timeToLive: 12345
               }
             },
-            actions.itemsByCategory.updateItemsByCategory({
+            itemsByCategory.updateItemsByCategory({
               category: "book", itemIds: ["1", "2", "1234"], nextPage: false
             })
         )

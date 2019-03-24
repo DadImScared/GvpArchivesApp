@@ -8,7 +8,6 @@ import { enableBatching } from "redux-batched-actions";
 import thunk from "redux-thunk";
 import reducers from "./reducers"
 import AudioPlayer from "./components/AudioPlayer";
-import AudioProvider from "./components/AudioPlayer/Provider";
 
 const store = createStore(
   enableBatching(reducers),
@@ -34,13 +33,11 @@ export default class App extends React.Component {
     } else {
       return (
         <Provider store={store}>
-          <AudioProvider>
-            <View style={styles.container}>
-              {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-              <AppNavigator />
-              <AudioPlayer />
-            </View>
-          </AudioProvider>
+          <View style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            <AppNavigator />
+            <AudioPlayer />
+          </View>
         </Provider>
       );
     }

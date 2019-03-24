@@ -2,18 +2,19 @@ import * as React from "react";
 
 import { Button, Card, CardItem } from "native-base";
 import { StyleSheet, Text } from "react-native";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
 
+import { audioPlayer } from "../actions";
 import { Item } from "../reducers/itemsById";
-import { IAudioPlayerState } from "./AudioPlayer/Provider";
 import CardHeader from "./CardHeader";
 import Icon from "./Icon";
 import { routes } from "./SideBar";
-import { withAudioPlayer } from "./withAudioPlayer";
 
 export interface IAudioResultProps {
   item: Item;
   [key: string]: any;
-  audio: IAudioPlayerState;
+  setSong: (songUrl: string, songName: string) => void;
 }
 
 const styles: any = StyleSheet.create({
@@ -33,13 +34,9 @@ const styles: any = StyleSheet.create({
 export class AudioResult extends React.Component<IAudioResultProps> {
 
   onPlay = () => {
-    const { item, audio } = this.props;
-    audio.setSong(item.link, item.title);
+    const { item, setSong } = this.props;
+    setSong(item.link, item.title);
   };
-
-  shouldComponentUpdate(nextProps: Readonly<IAudioResultProps>, nextState: Readonly<{}>, nextContext: any): boolean {
-    return this.props.item !== nextProps.item;
-  }
 
   render() {
     const { item } = this.props;
@@ -66,4 +63,8 @@ export class AudioResult extends React.Component<IAudioResultProps> {
   }
 }
 
-export default withAudioPlayer<IAudioResultProps>(AudioResult);
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setSong: (url: string, title: string) => dispatch(audioPlayer.setSong(url, title))
+});
+
+export default connect(null, mapDispatchToProps)(AudioResult);

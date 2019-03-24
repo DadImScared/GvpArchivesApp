@@ -1,4 +1,4 @@
-import actions from "../../actions";
+import { itemsById } from "../../actions";
 import reducer from "../../reducers/itemsById";
 
 describe("itemsById reducer", () => {
@@ -15,6 +15,6 @@ describe("itemsById reducer", () => {
         title: "title1"
       }
     };
-    expect(reducer(undefined, actions.itemsById.addItemsById(items))).toEqual(items);
+    expect(reducer(undefined, itemsById.addItemsById(items))).toEqual(items);
   });
 });

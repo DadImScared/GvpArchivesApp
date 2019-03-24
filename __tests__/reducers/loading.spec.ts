@@ -1,4 +1,4 @@
-import actions from "../../actions";
+import { loading } from "../../actions";
 import reducer from "../../reducers/loading";
 
 describe("loading reducer", () => {
@@ -7,10 +7,10 @@ describe("loading reducer", () => {
   });
 
   test("loading start", () => {
-    expect(reducer(undefined, actions.loading.loadingStart("LOADING_ID"))).toMatchSnapshot();
+    expect(reducer(undefined, loading.loadingStart("LOADING_ID"))).toMatchSnapshot();
   });
 
   test("loading end", () => {
-    expect(reducer({ LOADING_ID: true }, actions.loading.loadingEnd("LOADING_ID"))).toMatchSnapshot();
+    expect(reducer({ LOADING_ID: true }, loading.loadingEnd("LOADING_ID"))).toMatchSnapshot();
   });
 });

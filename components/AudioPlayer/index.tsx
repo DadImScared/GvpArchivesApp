@@ -1,15 +1,10 @@
 import * as React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View as Wrapper } from "react-native";
+import { connect } from "react-redux";
 
-import { withAudioPlayer } from "../withAudioPlayer";
-import ButtonGroup from "./ButtonGroup";
-import DurationSeeker from "./DurationSeeker";
-import { IAudioPlayerState } from "./Provider";
-import Title from "./Title";
-
-interface IProps {
-  audio: IAudioPlayerState;
-}
+import { IReducerState } from "../../reducers";
+import { getShowAudioPlayer } from "../../reducers/audioPlayer";
+import View from "./View";
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -21,38 +16,20 @@ const styles = StyleSheet.create({
   }
 });
 
+interface IProps {
+  showPlayer: boolean;
+}
+
 export class AudioPlayer extends React.Component<IProps> {
   render() {
-    const {
-      audio: {
-        isSeeking,
-        isPlaying,
-        onPlayPausePressed,
-        getSongName,
-        getSeekSliderPosition,
-        getTimeStamp,
-        onSeekSliderChange,
-        onSeekSliderComplete
-
-      }
-    } = this.props;
     return (
-      <View style={styles.wrapper}>
-        <Title getSongName={getSongName} />
-        <DurationSeeker
-          isSeeking={isSeeking}
-          getSeekSliderPosition={getSeekSliderPosition}
-          getTimeStamp={getTimeStamp}
-          onSeekSliderChange={onSeekSliderChange}
-          onSeekSliderComplete={onSeekSliderComplete}
-        />
-        <ButtonGroup
-          onPlayPausePressed={onPlayPausePressed}
-          isPlaying={isPlaying}
-        />
-      </View>
+      <Wrapper style={styles.wrapper}>
+        <View />
+      </Wrapper>
     );
   }
 }
 
-export default withAudioPlayer(AudioPlayer) as any; // property error without "any"
+const mapStateToProps = (state: IReducerState) => getShowAudioPlayer(state);
+
+export default connect(mapStateToProps)(AudioPlayer) as React.ComponentType;

@@ -1,7 +1,6 @@
 import * as React from "react";
-import * as renderer from "react-test-renderer";
-
 import { NavigationScreenProps, StackActions } from "react-navigation";
+import * as renderer from "react-test-renderer";
 
 import { SideBar } from "../../components/SideBar";
 

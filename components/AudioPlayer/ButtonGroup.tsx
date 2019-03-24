@@ -1,30 +1,34 @@
 import * as React from "react";
 import { View } from "react-native";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
 
 import { Button } from "native-base";
 
+import { audioPlayer } from "../../actions";
+import { IReducerState } from "../../reducers";
+import { AudioPlayerStateAndActions, getButtonGroupData } from "../../reducers/audioPlayer";
 import Icon from "../Icon";
 
-interface IButtonGroupProps {
-  isPlaying: boolean;
-  onPlayPausePressed: () => void;
-}
+interface IButtonGroupProps extends AudioPlayerStateAndActions<"playing" | "togglePlaying"> {}
 
 export class ButtonGroup extends React.Component<IButtonGroupProps> {
-  shouldComponentUpdate(nextProps: Readonly<IButtonGroupProps>, nextState: Readonly<{}>, nextContext: any): boolean {
-    return this.props.isPlaying !== nextProps.isPlaying;
-  }
-
   render() {
-    const { isPlaying, onPlayPausePressed } = this.props;
+    const { playing, togglePlaying } = this.props;
     return (
       <View style={{ justifyContent: "center", flexDirection: "row" }}>
-        <Button transparent={true} onPress={onPlayPausePressed}>
-          <Icon name={isPlaying ? "pause" : "play"} />
+        <Button transparent={true} onPress={togglePlaying}>
+          <Icon name={playing ? "pause" : "play"} />
         </Button>
       </View>
     );
   }
 }
 
-export default ButtonGroup;
+const mapStateToProps = (state: IReducerState) => getButtonGroupData(state);
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  togglePlaying: () => dispatch(audioPlayer.togglePlaying())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonGroup) as React.ComponentType;

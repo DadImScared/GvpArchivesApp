@@ -2,7 +2,7 @@ import _ from "lodash";
 import { createSelector } from "reselect";
 import { ActionType } from "typesafe-actions";
 
-import actions from "../actions";
+import * as actions from "../actions";
 import { LOADING_END, LOADING_START } from "../actiontypes/loading";
 import { IReducerState } from "./index";
 

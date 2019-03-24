@@ -4,7 +4,7 @@ import { NavigationScreenProps } from "react-navigation";
 import { createSelector } from "reselect";
 import { ActionType } from "typesafe-actions";
 
-import actions from "../actions";
+import * as actions from "../actions";
 import { ADD_ITEMS_BY_CATEGORY, UPDATE_ITEMS_BY_CATEGORY } from "../actiontypes/itemsByCategory";
 import { ITEMS_BY_CATEGORY } from "../loadingPrefix";
 import { IReducerState } from "./index";

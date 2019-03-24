@@ -1,8 +1,10 @@
+import { getInitialAudioPlayerState } from "../../reducers/audioPlayer";
 import { getItemsByCategory } from "../../reducers/itemsByCategory";
 
 describe("itemsByCategory selector", () => {
   it("should getItemsByCategory", () => {
     const state = {
+      audioPlayer: getInitialAudioPlayerState(),
       itemsByCategory: {
         book: {
           results: ["123"]

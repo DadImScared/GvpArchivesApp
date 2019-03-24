@@ -15,7 +15,8 @@ describe("AudioResult", () => {
         item_id: "1",
         link: "link1",
         title: "title1",
-      }
+      },
+      setSong: jest.fn()
     };
   });
 

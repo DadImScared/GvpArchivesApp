@@ -1,12 +1,11 @@
 import * as React from "react";
 import * as renderer from "react-test-renderer";
 
-import ButtonGroup from "../../../components/AudioPlayer/ButtonGroup";
+import { ButtonGroup } from "../../../components/AudioPlayer/ButtonGroup";
 
 describe("ButtonGroup", () => {
   it("should render", () => {
-    const onPlayPress = jest.fn();
-    const tree = renderer.create(<ButtonGroup isPlaying={true} onPlayPausePressed={onPlayPress} />).toJSON();
+    const tree = renderer.create(<ButtonGroup playing={true} togglePlaying={jest.fn()} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
