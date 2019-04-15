@@ -1,6 +1,7 @@
-export const SHOW_PLAYER = "audio/SHOW_PLAYER";
 export const TOGGLE_PLAYING = "audio/TOGGLE_PLAYING";
 export const SEEK_TO = "audio/SEEK_TO";
+export const SET_SHOW_PLAYER = "audio/SET_SHOW_PLAYER";
+export const SEEK_END = "audio/SEEK_END";
 
 // playlist types
 export const SET_PLAYLIST = "audio/SET_PLAYLIST";

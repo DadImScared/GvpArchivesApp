@@ -2,15 +2,18 @@ import { PlaybackStatus } from "expo";
 import { action } from "typesafe-actions";
 
 import * as AudioActionTypes from "../actiontypes/audioPlayer";
+import { ShowPlayerStatus } from "../reducers/audioPlayer";
 
 const setSeekTo = (seekTo: number) => action(AudioActionTypes.SEEK_TO, { seekTo });
+
+const seekEnd = (seekTo: number) => action(AudioActionTypes.SEEK_END, { seekTo });
 
 const togglePlaying = () => action(AudioActionTypes.TOGGLE_PLAYING);
 
 const setPlaying = (playing: boolean) => action(AudioActionTypes.SET_PLAYING, { playing });
 
-const showPlayer = (shouldShowPlayer: boolean) => {
-  return action(AudioActionTypes.SHOW_PLAYER, { showPlayer: shouldShowPlayer });
+const setShowPlayer = (status: ShowPlayerStatus) => {
+  return action(AudioActionTypes.SET_SHOW_PLAYER, { status });
 };
 
 const updatePlaybackInstance = (playbackStatus: PlaybackStatus) => {
@@ -26,7 +29,7 @@ const setPlaylist = (name: string, items: string[], currentIndex = 0) => {
       name,
       playerType: "playlist" as any,
       playing: true,
-      showPlayer: true,
+      showPlayer: ShowPlayerStatus.OPEN,
     }
   );
 };
@@ -41,17 +44,18 @@ const setSong = (songUrl: string, songName: string) => {
       songUrl,
       playerType: "song",
       playing: true,
-      showPlayer: true
+      showPlayer: ShowPlayerStatus.OPEN
     }
   );
 };
 
 export default {
+  seekEnd,
   setPlaying,
   setPlaylist,
   setSeekTo,
+  setShowPlayer,
   setSong,
-  showPlayer,
   togglePlaying,
   updateIndex,
   updatePlaybackInstance

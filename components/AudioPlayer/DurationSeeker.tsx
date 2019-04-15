@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Slider, Text, View } from "react-native";
+import { Slider, SliderProps, Text } from "react-native";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
@@ -8,20 +8,19 @@ import { IReducerState } from "../../reducers";
 import { AudioPlayerStateAndActions, getSeekerData } from "../../reducers/audioPlayer";
 
 interface IDurationSeekerProps extends AudioPlayerStateAndActions<
-  "playing" | "setPlaying" | "setSeekTo"
+  "playing" |
+  "setPlaying" |
+  "setSeekTo" |
+  "seekEnd"
 > {
   sliderPosition: number;
   timestamp: string;
 }
 
 class DurationSeeker extends React.Component<IDurationSeekerProps> {
-  isSeeking = false;
 
   onSlideStart = () => {
-    if (!this.isSeeking) {
-      this.isSeeking = true;
-      this.props.setPlaying(false);
-    }
+    this.props.setPlaying(false);
   };
 
   onValueChange = (val: number) => {
@@ -29,28 +28,27 @@ class DurationSeeker extends React.Component<IDurationSeekerProps> {
   };
 
   onSlideComplete = (value: number) => {
-    this.isSeeking = false;
-    this.props.setSeekTo(value);
-    this.props.setPlaying(true);
+    this.props.seekEnd(value);
+    // prevent player from starting from before seek position
+    setTimeout(() => {
+      this.props.setPlaying(true);
+    }, 200);
   };
 
-  shouldComponentUpdate(nextProps: Readonly<IDurationSeekerProps>, nextState: Readonly<{}>, nextContext: any): boolean {
-    return !this.isSeeking;
-  }
-
   render() {
-    const { sliderPosition, timestamp } = this.props;
+    const { sliderPosition, timestamp, ...other } = this.props;
     return (
-      <View style={{flexDirection: "row", justifyContent: "center", alignItems: "center", paddingTop: 12}}>
+      <React.Fragment>
         <Slider
+          {...other}
           onTouchStart={this.onSlideStart}
           onValueChange={this.onValueChange}
           value={sliderPosition}
           onSlidingComplete={this.onSlideComplete}
-          style={{width: "65%"}}
+          style={{ flex: 1 }}
         />
-        <Text>{timestamp}</Text>
-      </View>
+        <Text style={{ minWidth: 70 }}>{timestamp}</Text>
+      </React.Fragment>
     );
   }
 }
@@ -58,8 +56,9 @@ class DurationSeeker extends React.Component<IDurationSeekerProps> {
 const mapStateToProps = (state: IReducerState) => getSeekerData(state);
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
+  seekEnd: (milliseconds: number) => dispatch(audioPlayer.seekEnd(milliseconds)),
   setPlaying: (playing: boolean) => dispatch(audioPlayer.setPlaying(playing)),
   setSeekTo: (milliseconds: number) => dispatch(audioPlayer.setSeekTo(milliseconds))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DurationSeeker) as React.ComponentType;
+export default connect(mapStateToProps, mapDispatchToProps)(DurationSeeker) as React.ComponentType<SliderProps>;

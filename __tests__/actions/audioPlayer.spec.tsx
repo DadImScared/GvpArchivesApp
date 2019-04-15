@@ -1,8 +1,17 @@
 import { audioPlayer } from "../../actions";
+import { ShowPlayerStatus } from "../../reducers/audioPlayer";
 
 describe("audioPlayer", () => {
   it("should toggle audio playing", () => {
     expect(audioPlayer.togglePlaying()).toMatchSnapshot();
+  });
+
+  it("should seek end", () => {
+    expect(audioPlayer.seekEnd(25)).toMatchSnapshot();
+  });
+
+  it("should seek to", () => {
+    expect(audioPlayer.setSeekTo(25)).toMatchSnapshot();
   });
 
   it("should set playing to true", () => {
@@ -10,7 +19,7 @@ describe("audioPlayer", () => {
   });
 
   it("should show audio player", () => {
-    expect(audioPlayer.showPlayer(true)).toMatchSnapshot();
+    expect(audioPlayer.setShowPlayer(ShowPlayerStatus.OPEN)).toMatchSnapshot();
   });
 
   it("should set a playlist to start playing", () => {

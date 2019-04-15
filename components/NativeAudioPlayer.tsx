@@ -2,8 +2,6 @@ import * as React from "react";
 
 import { Audio, PlaybackObject, PlaybackStatus } from "expo";
 
-export type PlayStatuses = "play" | "pause" | "stop";
-
 interface INativeAudioPlayerProps {
   onPlaybackStatusUpdate: (status: PlaybackStatus) => void;
   playing: boolean;
@@ -37,7 +35,7 @@ class NativeAudioPlayer extends React.Component<INativeAudioPlayerProps> {
   };
 
   _seekTo = async (value: number): Promise<void> => {
-    if (this.playbackInstance !== null) {
+    if (this.playbackInstance !== null && !this.props.playing) {
       // const { playbackInstanceDuration } = this.state;
       await this.playbackInstance.playFromPositionAsync(value);
     }

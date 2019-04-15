@@ -6,6 +6,12 @@ import * as AudioActionTypes from "../actiontypes/audioPlayer";
 import { IReducerState } from "./index";
 import { getItemsById, ItemsByIdState } from "./itemsById";
 
+export enum ShowPlayerStatus {
+  OPEN = "OPEN",
+  CLOSED = "CLOSED",
+  MINIMIZED = "MINIMIZED"
+}
+
 export interface IAudioPlayerState {
   currentIndex: number;
   currentSongName: string;
@@ -17,7 +23,8 @@ export interface IAudioPlayerState {
   playerType: "song" | "playlist";
   playing: boolean;
   seekTo: number;
-  showPlayer: boolean;
+  showPlayer: ShowPlayerStatus;
+  sliderValue: number;
 }
 
 export type AudioPlayerStateAndActions<
@@ -28,7 +35,8 @@ export const getInitialAudioPlayerState = (): IAudioPlayerState => ({
   playerType: "song",
   playing: false,
   seekTo: 0,
-  showPlayer: false,
+  showPlayer: ShowPlayerStatus.CLOSED,
+  sliderValue: 0,
 
   // values used when audio is playing a playlist
   currentIndex: 0,
@@ -58,19 +66,25 @@ export default function audioPlayer(
           ...state,
           duration: payload.durationMillis || 0,
           playing: payload.didJustFinish ? false : state.playing,
-          position: payload.positionMillis || 0
+          position: payload.positionMillis || 0,
+          sliderValue: payload.positionMillis || 0
         };
       }
       return state;
-    case AudioActionTypes.SHOW_PLAYER:
+    case AudioActionTypes.SEEK_END:
       return {
         ...state,
-        showPlayer: action.payload.showPlayer
+        seekTo: action.payload.seekTo * (state.duration || 0)
+      };
+    case AudioActionTypes.SET_SHOW_PLAYER:
+      return {
+        ...state,
+        showPlayer: action.payload.status
       };
     case AudioActionTypes.SEEK_TO:
       return {
         ...state,
-        seekTo: action.payload.seekTo * (state.duration || 0)
+        sliderValue: action.payload.seekTo * (state.duration || 0)
       };
     case AudioActionTypes.TOGGLE_PLAYING:
       return {
@@ -104,7 +118,7 @@ export default function audioPlayer(
         currentSongUrl: action.payload.songUrl,
         playerType: action.payload.playerType,
         playing: action.payload.playing,
-        showPlayer: action.payload.showPlayer
+        showPlayer: state.showPlayer === ShowPlayerStatus.MINIMIZED ? state.showPlayer : action.payload.showPlayer
       };
     default:
       return state;
@@ -153,11 +167,13 @@ export const getTitleData = createSelector(
 
 export const getSeekerData = createSelector(
   [getAudioPlayerState],
-  ({ playing, position, duration }) => ({
-    playing,
-    sliderPosition: position / duration,
-    timestamp: `${getTimestamp(position)} / ${getTimestamp(duration)}`
-  })
+  ({ playing, position, duration, sliderValue }) => {
+    return ({
+      playing,
+      sliderPosition: sliderValue / duration,
+      timestamp: `${getTimestamp(sliderValue)} / ${getTimestamp(duration)}`
+    });
+  }
 );
 
 export const getAudioPlayerData = createSelector(

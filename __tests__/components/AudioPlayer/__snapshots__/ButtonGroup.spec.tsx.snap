@@ -22,7 +22,7 @@ exports[`ButtonGroup should render 1`] = `
       Object {
         "alignItems": "center",
         "alignSelf": "flex-start",
-        "backgroundColor": "transparent",
+        "backgroundColor": null,
         "borderBottomWidth": null,
         "borderColor": "#007aff",
         "borderLeftWidth": null,
@@ -46,6 +46,11 @@ exports[`ButtonGroup should render 1`] = `
   >
     <Icon
       name="pause"
+      style={
+        Object {
+          "color": "#3F51B5",
+        }
+      }
     />
   </View>
 </View>

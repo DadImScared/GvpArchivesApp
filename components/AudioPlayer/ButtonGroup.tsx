@@ -17,8 +17,8 @@ export class ButtonGroup extends React.Component<IButtonGroupProps> {
     const { playing, togglePlaying } = this.props;
     return (
       <View style={{ justifyContent: "center", flexDirection: "row" }}>
-        <Button transparent={true} onPress={togglePlaying}>
-          <Icon name={playing ? "pause" : "play"} />
+        <Button transparent={true} primary={true} onPress={togglePlaying}>
+          <Icon style={{ color: "#3F51B5"}} name={playing ? "pause" : "play"} />
         </Button>
       </View>
     );

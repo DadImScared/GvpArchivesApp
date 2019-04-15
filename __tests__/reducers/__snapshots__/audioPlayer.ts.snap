@@ -1,5 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`audioPlayer reducer should seek end 1`] = `
+Object {
+  "currentIndex": 0,
+  "currentSongName": "",
+  "currentSongUrl": "",
+  "duration": 0,
+  "items": Array [],
+  "name": "",
+  "playerType": "song",
+  "playing": false,
+  "position": 0,
+  "seekTo": 0,
+  "showPlayer": "CLOSED",
+  "sliderValue": 0,
+}
+`;
+
+exports[`audioPlayer reducer should seek to 1`] = `
+Object {
+  "currentIndex": 0,
+  "currentSongName": "",
+  "currentSongUrl": "",
+  "duration": 0,
+  "items": Array [],
+  "name": "",
+  "playerType": "song",
+  "playing": false,
+  "position": 0,
+  "seekTo": 0,
+  "showPlayer": "CLOSED",
+  "sliderValue": 0,
+}
+`;
+
 exports[`audioPlayer reducer should set playing to true 1`] = `
 Object {
   "currentIndex": 0,
@@ -12,7 +46,8 @@ Object {
   "playing": true,
   "position": 0,
   "seekTo": 0,
-  "showPlayer": false,
+  "showPlayer": "CLOSED",
+  "sliderValue": 0,
 }
 `;
 
@@ -31,11 +66,12 @@ Object {
   "playing": true,
   "position": 0,
   "seekTo": 0,
-  "showPlayer": true,
+  "showPlayer": "OPEN",
+  "sliderValue": 0,
 }
 `;
 
-exports[`audioPlayer reducer should set showPlayer to true 1`] = `
+exports[`audioPlayer reducer should set show player to open 1`] = `
 Object {
   "currentIndex": 0,
   "currentSongName": "",
@@ -47,7 +83,8 @@ Object {
   "playing": false,
   "position": 0,
   "seekTo": 0,
-  "showPlayer": true,
+  "showPlayer": "OPEN",
+  "sliderValue": 0,
 }
 `;
 
@@ -63,7 +100,8 @@ Object {
   "playing": true,
   "position": 0,
   "seekTo": 0,
-  "showPlayer": true,
+  "showPlayer": "OPEN",
+  "sliderValue": 0,
 }
 `;
 
@@ -79,7 +117,25 @@ Object {
   "playing": true,
   "position": 0,
   "seekTo": 0,
-  "showPlayer": false,
+  "showPlayer": "CLOSED",
+  "sliderValue": 0,
+}
+`;
+
+exports[`audioPlayer reducer should update playback instance 1`] = `
+Object {
+  "currentIndex": 0,
+  "currentSongName": "",
+  "currentSongUrl": "",
+  "duration": 25,
+  "items": Array [],
+  "name": "",
+  "playerType": "song",
+  "playing": false,
+  "position": 25,
+  "seekTo": 0,
+  "showPlayer": "CLOSED",
+  "sliderValue": 25,
 }
 `;
 
@@ -95,6 +151,7 @@ Object {
   "playing": false,
   "position": 0,
   "seekTo": 0,
-  "showPlayer": false,
+  "showPlayer": "CLOSED",
+  "sliderValue": 0,
 }
 `;

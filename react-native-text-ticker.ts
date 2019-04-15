@@ -11,6 +11,7 @@ declare module "react-native-text-ticker" {
     marqueeOnMount?: boolean;
     onMarqueeComplete?: () => void;
     repeatSpacer?: number;
+    scroll?: boolean;
     useNativeDriver?: boolean;
   }
 

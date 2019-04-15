@@ -13,6 +13,7 @@ exports[`Title should render 1`] = `
     bounce={false}
     duration={5000}
     loop={true}
+    scroll={false}
   >
     song name here
   </Marquee>

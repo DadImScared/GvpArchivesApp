@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`audioPlayer should seek end 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "seekTo": 25,
+  },
+  "type": "audio/SEEK_END",
+}
+`;
+
+exports[`audioPlayer should seek to 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "seekTo": 25,
+  },
+  "type": "audio/SEEK_TO",
+}
+`;
+
 exports[`audioPlayer should set a playlist to start playing 1`] = `
 Object {
   "meta": undefined,
@@ -12,7 +32,7 @@ Object {
     "name": "my playlist",
     "playerType": "playlist",
     "playing": true,
-    "showPlayer": true,
+    "showPlayer": "OPEN",
   },
   "type": "audio/SET_PLAYLIST",
 }
@@ -24,7 +44,7 @@ Object {
   "payload": Object {
     "playerType": "song",
     "playing": true,
-    "showPlayer": true,
+    "showPlayer": "OPEN",
     "songName": "song name",
     "songUrl": "songurl",
   },
@@ -46,9 +66,9 @@ exports[`audioPlayer should show audio player 1`] = `
 Object {
   "meta": undefined,
   "payload": Object {
-    "showPlayer": true,
+    "status": "OPEN",
   },
-  "type": "audio/SHOW_PLAYER",
+  "type": "audio/SET_SHOW_PLAYER",
 }
 `;
 

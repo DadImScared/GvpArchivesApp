@@ -1,5 +1,5 @@
 import { audioPlayer } from "../../actions";
-import reducer, { getInitialAudioPlayerState } from "../../reducers/audioPlayer";
+import reducer, { getInitialAudioPlayerState, ShowPlayerStatus } from "../../reducers/audioPlayer";
 
 const initialAudioPlayerState = getInitialAudioPlayerState();
 
@@ -22,11 +22,42 @@ describe("audioPlayer reducer", () => {
     ).toMatchSnapshot();
   });
 
-  it("should set showPlayer to true", () => {
+  it("should update playback instance", () => {
     expect(
       reducer(
         initialAudioPlayerState,
-        audioPlayer.showPlayer(true)
+        audioPlayer.updatePlaybackInstance({
+          durationMillis: 25,
+          isLoaded: true,
+          positionMillis: 25
+        } as any)
+      )
+    ).toMatchSnapshot();
+  });
+
+  it("should seek end", () => {
+    expect(
+      reducer(
+        initialAudioPlayerState,
+        audioPlayer.seekEnd(25)
+      )
+    ).toMatchSnapshot();
+  });
+
+  it("should set show player to open", () => {
+    expect(
+      reducer(
+        initialAudioPlayerState,
+        audioPlayer.setShowPlayer(ShowPlayerStatus.OPEN)
+      )
+    ).toMatchSnapshot();
+  });
+
+  it("should seek to", () => {
+    expect(
+      reducer(
+        initialAudioPlayerState,
+        audioPlayer.setSeekTo(25)
       )
     ).toMatchSnapshot();
   });
