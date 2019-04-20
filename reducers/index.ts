@@ -16,7 +16,7 @@ const reducer = combineReducers<IReducerState>({
   audioPlayer,
   itemsByCategory,
   itemsById,
-  loading,
+  loading
 });
 
 export default reducer;

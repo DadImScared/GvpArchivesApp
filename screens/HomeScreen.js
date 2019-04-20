@@ -12,11 +12,13 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import MyComponent from '../components/MyComponent';
+import { headerRight } from "./Header";
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = (props) => ({
     title: "Hi",
-  };
+    headerRight: headerRight(props)
+  });
 
   render() {
     return (

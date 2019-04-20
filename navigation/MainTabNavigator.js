@@ -1,32 +1,51 @@
 import React from 'react';
-// import { Platform } from 'react-native';
-import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import { createStackNavigator, createDrawerNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 
-// import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SideBar from "../components/SafeAreaSideBar";
-import ItemsByCategory from "../screens/ItemsByCategory";
+import {
+  AutoComplete,
+  Filter,
+  SearchHeader,
+  RecentSearches,
+  ItemsByCategory
+} from "../screens";
+
+const SearchBarTabs = createMaterialTopTabNavigator({
+  AutoComplete,
+  Filter,
+  Recent: RecentSearches
+}, { backBehavior: "initialRoute" });
+
+const SearchBarStack = createStackNavigator({
+  SearchBarTabs: {
+    screen: SearchBarTabs
+  }
+}, { headerMode: "none"  });
+
+SearchBarStack.navigationOptions = () => ({ drawerLockMode: "locked-closed" });
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
-  ItemsByCategory
+  ItemsByCategory,
+  SearchBar: {
+    screen: SearchBarStack,
+    navigationOptions: (props) => ({ headerTitle: <SearchHeader {...props} /> })
+  }
 });
 
-HomeStack.navigationOptions = {
-  title: "Hi",
-  // tabBarLabel: 'Home',
-  // tabBarIcon: ({ focused }) => (
-  //   <TabBarIcon
-  //     focused={focused}
-  //     name={
-  //       Platform.OS === 'ios'
-  //         ? `ios-information-circle${focused ? '' : '-outline'}`
-  //         : 'md-information-circle'
-  //     }
-  //   />
-  // ),
+HomeStack.navigationOptions = ({ navigation }) => {
+  let drawerLockMode = "unlocked";
+  const currentRoute = navigation.state.routes[navigation.state.index];
+  if (currentRoute.routeName === "SearchBar") {
+    drawerLockMode = "locked-closed";
+  }
+  return {
+    drawerLockMode,
+    title: "Hi"
+  };
 };
 
 const LinksStack = createStackNavigator({
