@@ -8,11 +8,12 @@ import { enableBatching } from "redux-batched-actions";
 import thunk from "redux-thunk";
 import reducers from "./reducers"
 import AudioPlayer from "./components/AudioPlayer";
+import { callApiMiddleware } from "./callApiMiddleware";
 
 const store = createStore(
   enableBatching(reducers),
   compose(
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, callApiMiddleware)
   )
 );
 

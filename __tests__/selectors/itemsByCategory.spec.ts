@@ -1,10 +1,9 @@
-import { getInitialAudioPlayerState } from "../../reducers/audioPlayer";
+import { getInitialReducerState } from "../../reducers";
 import { getItemsByCategory } from "../../reducers/itemsByCategory";
 
 describe("itemsByCategory selector", () => {
   it("should getItemsByCategory", () => {
-    const state = {
-      audioPlayer: getInitialAudioPlayerState(),
+    const state = getInitialReducerState({
       itemsByCategory: {
         book: {
           results: ["123"]
@@ -17,9 +16,9 @@ describe("itemsByCategory selector", () => {
           link: "link",
           title: "title"
         }
-      },
-      loading: {}
-    };
+      }
+    });
+
     const props = {
       navigation: {
         getParam: jest.fn(() => "book"),

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`autoComplete should add auto complete 1`] = `
+Object {
+  "query-book": Object {
+    "results": Array [
+      "text",
+    ],
+    "timeToLive": 1555920976011,
+  },
+}
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`autoComplete should add auto complete 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "categories": Array [
+      "book",
+    ],
+    "query": "query",
+    "results": Array [
+      "texthere",
+    ],
+  },
+  "type": "autoComplete/ADD_AUTOCOMPLETE",
+}
+`;

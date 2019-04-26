@@ -1,6 +1,6 @@
 import axios from "axios";
 import { addItemsByCategory, getItemsByCategory, updateItemsByCategory } from "../../actions/itemsByCategory";
-import { getInitialAudioPlayerState } from "../../reducers/audioPlayer";
+import { getInitialReducerState } from "../../reducers";
 
 jest.mock("axios");
 const payload = { category: "book", itemIds: ["1", "2"], nextPage: false};
@@ -25,13 +25,10 @@ describe("itemsByCategory", () => {
         });
       });
       const dispatch = jest.fn();
-      const getState = () => ({
-        audioPlayer: getInitialAudioPlayerState(),
-        itemsByCategory: {},
-        itemsById: {},
+      const getState = () => getInitialReducerState({
         loading: {
           ITEMS_BY_CATEGORY_book: false
-        },
+        }
       });
       await getItemsByCategory("book", false)(dispatch, getState, undefined);
       expect(dispatch).toHaveBeenCalledTimes(2);

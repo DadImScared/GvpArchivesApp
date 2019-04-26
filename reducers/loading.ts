@@ -14,10 +14,12 @@ function loading(state: ILoadingState = {}, action: ActionType<typeof actions.lo
   switch (action.type) {
     case LOADING_START:
       return {
+        ...state,
         [action.payload]: true
       };
     case LOADING_END:
       return {
+        ...state,
         [action.payload]: false
       };
     default:

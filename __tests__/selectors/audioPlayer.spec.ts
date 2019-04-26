@@ -1,24 +1,20 @@
+import { getInitialReducerState } from "../../reducers";
 import {
   getAudioPlayerData,
   getButtonGroupData,
-  getInitialAudioPlayerState,
   getSeekerData,
   getTitleData
 } from "../../reducers/audioPlayer";
 
-const state = {
+const state = getInitialReducerState({
   audioPlayer: {
-    ...getInitialAudioPlayerState(),
     currentSongName: "song name",
     currentSongUrl: "song url",
     duration: 450000,
     position: 2000,
     sliderValue: 2000
-  },
-  itemsByCategory: {},
-  itemsById: {},
-  loading: {}
-};
+  }
+});
 
 describe("audioPlayer selectors", () => {
   it("should getAudioPlayerData", () => {

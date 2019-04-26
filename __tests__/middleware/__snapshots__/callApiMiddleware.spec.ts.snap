@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`callApiMiddleware should respond to api call: loading actions 1`] = `
+Array [
+  Array [
+    Object {
+      "meta": Object {
+        "batch": true,
+      },
+      "payload": Array [
+        Object {
+          "meta": undefined,
+          "payload": "LOADING_ID_HERE",
+          "type": "loading/LOADING_START",
+        },
+      ],
+      "type": "BATCHING_REDUCER.BATCH",
+    },
+  ],
+  Array [
+    Object {
+      "meta": Object {
+        "batch": true,
+      },
+      "payload": Array [
+        Object {
+          "meta": undefined,
+          "payload": "LOADING_ID_HERE",
+          "type": "loading/LOADING_END",
+        },
+      ],
+      "type": "BATCHING_REDUCER.BATCH",
+    },
+  ],
+]
+`;

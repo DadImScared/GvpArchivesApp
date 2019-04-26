@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`autoComplete should get auto complete screen 1`] = `
+Object {
+  "autoComplete": Object {
+    "results": Array [
+      "text",
+    ],
+    "timeToLive": 1555834576011,
+  },
+  "categories": Array [
+    "bhagavatpatrika",
+    "book",
+    "harikatha",
+    "harmonistmonthly",
+    "harmonistmagazine",
+    "lecture",
+    "movie",
+    "song",
+  ],
+  "isLoading": undefined,
+  "query": "my query",
+  "queryId": "my query-bhagavatpatrika,book,harikatha,harmonistmagazine,harmonistmonthly,lecture,movie,song",
+}
+`;

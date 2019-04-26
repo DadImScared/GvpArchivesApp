@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search should update search query 1`] = `
+Object {
+  "meta": undefined,
+  "payload": "new query",
+  "type": "search/UPDATE_SEARCH_QUERY",
+}
+`;
