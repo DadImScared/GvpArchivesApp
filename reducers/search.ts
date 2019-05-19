@@ -18,8 +18,8 @@ export const CATEGORIES = [
   "bhagavatpatrika",
   "book",
   "harikatha",
-  "harmonistmonthly",
   "harmonistmagazine",
+  "harmonistmonthly",
   "lecture",
   "movie",
   "song"
@@ -36,6 +36,26 @@ export default function(state = getInitialSearchState(), action: ActionType<type
       return {
         ...state,
         query: action.payload
+      };
+    case ActionTypes.TOGGLE_CATEGORIES:
+      const { payload } = action;
+      const { categories } = state;
+      return {
+        ...state,
+        categories: categories.includes(payload) ?
+          categories.filter((category) => category !== action.payload)
+          :
+          [...categories, payload]
+      };
+    case ActionTypes.SELECT_ALL_CATEGORIES:
+      return {
+        ...state,
+        categories: [...CATEGORIES]
+      };
+    case ActionTypes.REMOVE_ALL_CATEGORIES:
+      return {
+        ...state,
+        categories: []
       };
     default:
       return state;

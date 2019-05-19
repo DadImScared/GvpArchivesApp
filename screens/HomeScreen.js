@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { ScreenOrientation, WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import MyComponent from '../components/MyComponent';
@@ -19,6 +19,10 @@ export default class HomeScreen extends React.Component {
     title: "Hi",
     headerRight: headerRight(props)
   });
+
+  componentDidMount() {
+    ScreenOrientation.allowAsync(ScreenOrientation.Orientation.ALL);
+  }
 
   render() {
     return (

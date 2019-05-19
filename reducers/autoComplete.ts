@@ -7,7 +7,7 @@ import * as ActionTypes from "../actiontypes/autoComplete";
 import { AUTOCOMPLETE_QUERY } from "../loadingPrefix";
 import { IReducerState } from "./index";
 import { ILoadingState } from "./loading";
-import { getQueryId, getSearch, ISearchState } from "./search";
+import { CATEGORIES, getQueryId, getSearch, ISearchState } from "./search";
 
 export interface IAutoCompleteState {
   [key: string]: {
@@ -47,6 +47,8 @@ export interface IAutoCompleteScreenData {
   isLoading: boolean;
 }
 
+export const getCategoriesWithDefault = (categories: string[]) => categories.length ? categories : CATEGORIES;
+
 export const getAutoCompleteScreen = createSelector<
   IReducerState,
   IAutoCompleteState,
@@ -56,7 +58,7 @@ export const getAutoCompleteScreen = createSelector<
 >(
   [(state) => state.autoComplete, getSearch, (state) => state.loading],
   (autoCompleteState, { categories, query }, loadingState) => {
-    const queryId = getQueryId(query, categories);
+    const queryId = getQueryId(query, getCategoriesWithDefault(categories));
     return {
       categories,
       query,

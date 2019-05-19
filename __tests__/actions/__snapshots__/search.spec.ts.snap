@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`search should remove all categories 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Array [
+    "bhagavatpatrika",
+    "book",
+    "harikatha",
+    "harmonistmagazine",
+    "harmonistmonthly",
+    "lecture",
+    "movie",
+    "song",
+  ],
+  "type": "search/REMOVE_ALL_CATEGORIES",
+}
+`;
+
+exports[`search should select all categories 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Array [
+    "bhagavatpatrika",
+    "book",
+    "harikatha",
+    "harmonistmagazine",
+    "harmonistmonthly",
+    "lecture",
+    "movie",
+    "song",
+  ],
+  "type": "search/SELECT_ALL_CATEGORIES",
+}
+`;
+
+exports[`search should toggle categories 1`] = `
+Object {
+  "meta": undefined,
+  "payload": "book",
+  "type": "search/TOGGLE_CATEGORIES",
+}
+`;
+
 exports[`search should update search query 1`] = `
 Object {
   "meta": undefined,

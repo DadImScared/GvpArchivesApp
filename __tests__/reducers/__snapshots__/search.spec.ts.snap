@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search should remove all categories 1`] = `
+Object {
+  "categories": Array [],
+  "query": "",
+}
+`;
+
+exports[`search should select all categories 1`] = `
+Object {
+  "categories": Array [
+    "bhagavatpatrika",
+    "book",
+    "harikatha",
+    "harmonistmagazine",
+    "harmonistmonthly",
+    "lecture",
+    "movie",
+    "song",
+  ],
+  "query": "query here",
+}
+`;
+
+exports[`search toggleCategory should add 'book' category 1`] = `
+Object {
+  "categories": Array [
+    "song",
+    "book",
+  ],
+  "query": "",
+}
+`;
+
+exports[`search toggleCategory should remove 'book' category 1`] = `
+Object {
+  "categories": Array [
+    "bhagavatpatrika",
+    "harikatha",
+    "harmonistmagazine",
+    "harmonistmonthly",
+    "lecture",
+    "movie",
+    "song",
+  ],
+  "query": "",
+}
+`;

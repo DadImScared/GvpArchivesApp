@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BackHandler, View } from "react-native";
+import { BackHandler, StyleSheet, View } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
@@ -18,6 +18,15 @@ interface IProps extends NavigationScreenProps, SearchStateAndActions<"query" | 
   getQuerySuggestions: (query: string, categories: string[]) => any;
 }
 
+const styles: any = StyleSheet.create({
+  header: {
+    backgroundColor: "white",
+    borderBottomWidth: 0,
+    height: 40,
+    paddingTop: 0
+  }
+});
+
 export class Header extends React.Component<IProps> {
   textRef!: any;
   didFocus!: any;
@@ -33,6 +42,15 @@ export class Header extends React.Component<IProps> {
     this.willBlur = this.props.navigation.addListener("willBlur", () => {
       BackHandler.removeEventListener("hardwareBackPress", this.handleBackButton);
     });
+  }
+
+  componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<{}>, snapshot?: any): void {
+    const { navigation: { state: { routes } }, query, categories } = this.props;
+    const { index } = routes[0];
+    // when auto complete screen re-focuses fetch data
+    if ((index !== prevProps.navigation.state.routes[0].index) && index === 0) {
+      this.props.getQuerySuggestions(query, categories);
+    }
   }
 
   componentWillUnmount(): void {
@@ -55,7 +73,7 @@ export class Header extends React.Component<IProps> {
   render() {
     return (
       <View style={{ width: "100%" }}>
-        <BaseHeader noShadow={true} style={{ backgroundColor: "white" }} searchBar={true}>
+        <BaseHeader noShadow={true} style={styles.header} searchBar={true}>
           <Item rounded={true}>
             <Icon name={"ios-search"} />
             <Input

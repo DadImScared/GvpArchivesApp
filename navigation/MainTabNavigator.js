@@ -1,5 +1,6 @@
 import React from 'react';
-import { createStackNavigator, createDrawerNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import { Platform } from "react-native";
+import { createStackNavigator, createDrawerNavigator, createMaterialTopTabNavigator, Header } from 'react-navigation';
 
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
@@ -17,7 +18,10 @@ const SearchBarTabs = createMaterialTopTabNavigator({
   AutoComplete,
   Filter,
   Recent: RecentSearches
-}, { backBehavior: "initialRoute" });
+}, {
+  backBehavior: "initialRoute",
+  tabBarOptions: { scrollEnabled: Platform.select({ ios: true, android: false }) }
+});
 
 const SearchBarStack = createStackNavigator({
   SearchBarTabs: {
@@ -32,7 +36,10 @@ const HomeStack = createStackNavigator({
   ItemsByCategory,
   SearchBar: {
     screen: SearchBarStack,
-    navigationOptions: (props) => ({ headerTitle: <SearchHeader {...props} /> })
+    navigationOptions: (props) => ({
+      headerStyle: { height: Platform.select({ ios: 55, android: Header.HEIGHT }) },
+      headerTitle: <SearchHeader {...props} />
+    })
   }
 });
 

@@ -7,7 +7,7 @@ import { Spinner } from "native-base";
 import { IReducerState } from "../../reducers";
 import { getAutoCompleteScreen, IAutoCompleteScreenData } from "../../reducers/autoComplete";
 
-import ListItem from "../../components/AutoCompleteListItem";
+import ListItem from "../../components/SearchBarScreen/AutoCompleteListItem";
 
 class AutoComplete extends React.Component<IAutoCompleteScreenData> {
   renderListItem: ListRenderItem<string> = ({ item }) => (
