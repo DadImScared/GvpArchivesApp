@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`recentSearches should add search 1`] = `
+Array [
+  Object {
+    "categories": Array [
+      "book",
+      "song",
+    ],
+    "query": "new query",
+    "timestamp": 1558258058632,
+  },
+  Object {
+    "categories": Array [
+      "movie",
+    ],
+    "query": "radha",
+    "timestamp": 1558255058632,
+  },
+]
+`;

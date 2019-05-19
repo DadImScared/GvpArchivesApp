@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`recentSearches should add search 1`] = `
+Object {
+  "meta": undefined,
+  "payload": Object {
+    "categories": Array [
+      "book",
+    ],
+    "query": "query",
+  },
+  "type": "recentSearches/ADD_SEARCH",
+}
+`;

@@ -6,6 +6,7 @@ import autoComplete, { getInitialAutoCompleteState, IAutoCompleteState } from ".
 import itemsByCategory, { ItemsByCategoryState } from "./itemsByCategory";
 import itemsById, { ItemsByIdState } from "./itemsById";
 import loading, { ILoadingState } from "./loading";
+import recentSearches, { RecentSearches } from "./recentSearches";
 import search, { getInitialSearchState, ISearchState } from "./search";
 
 export interface IReducerState {
@@ -14,6 +15,7 @@ export interface IReducerState {
   loading: ILoadingState;
   itemsByCategory: ItemsByCategoryState;
   itemsById: ItemsByIdState;
+  recentSearches: RecentSearches;
   search: ISearchState;
 }
 
@@ -23,6 +25,7 @@ export const getInitialReducerState = (injectedState: DeepPartial<IReducerState>
   itemsByCategory: {},
   itemsById: {},
   loading: {},
+  recentSearches: [],
   search: getInitialSearchState()
 }, injectedState);
 
@@ -32,6 +35,7 @@ const reducer = combineReducers<IReducerState>({
   itemsByCategory,
   itemsById,
   loading,
+  recentSearches,
   search
 });
 
