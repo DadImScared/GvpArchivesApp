@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`searchResults reducer should add search 1`] = `
+Object {
+  "radha-book,movie": Object {
+    "nextPage": "/nextpage",
+    "results": Array [
+      Object {
+        "highlightedBody": "search body",
+        "item_id": "1",
+      },
+    ],
+    "suggestions": Array [],
+    "timeToLive": 1558680261568,
+  },
+}
+`;
+
+exports[`searchResults reducer should update search 1`] = `
+Object {
+  "radha-book,movie": Object {
+    "nextPage": "/nextpage2",
+    "results": Array [
+      Object {
+        "highlightedBody": "search body",
+        "item_id": "2",
+      },
+      Object {
+        "highlightedBody": "search body",
+        "item_id": "1",
+      },
+      Object {
+        "highlightedBody": "search body",
+        "item_id": "2",
+      },
+    ],
+    "suggestions": Array [
+      "suggestion",
+    ],
+    "timeToLive": 1558593861568,
+  },
+}
+`;

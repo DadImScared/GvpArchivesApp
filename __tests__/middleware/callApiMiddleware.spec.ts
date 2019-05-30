@@ -42,7 +42,7 @@ describe("callApiMiddleware", () => {
   it("should respond to api call", async () => {
     await invoke(baseAction);
     expect(baseAction.apiCall).toHaveBeenCalledWith(store.getState(), store.dispatch);
-    expect(baseAction.afterApiCall).toHaveBeenCalledWith({}, store.getState(), store.dispatch);
+    expect(baseAction.afterApiCall).toHaveBeenCalledWith({ data: {} }, store.getState(), store.dispatch);
     expect(store.dispatch.mock.calls).toMatchSnapshot("loading actions");
   });
 

@@ -5,3 +5,4 @@ export { default as itemsById } from "./itemsById";
 export { default as loading } from "./loading";
 export { default as recentSearches } from "./recentSearches";
 export { default as search } from "./search";
+export { default as searchResults } from "./searchResults";

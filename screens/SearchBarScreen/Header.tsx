@@ -12,7 +12,7 @@ import { Icon } from "../../components/Icon";
 import { search } from "../../actions";
 import { getQuerySuggestions } from "../../actions/search";
 import { IReducerState } from "../../reducers";
-import { getSearch, SearchStateAndActions } from "../../reducers/search";
+import { getQueryId, getSearch, SearchStateAndActions } from "../../reducers/search";
 
 interface IProps extends NavigationScreenProps, SearchStateAndActions<"query" | "updateSearchQuery" | "categories"> {
   getQuerySuggestions: (query: string, categories: string[]) => any;
@@ -40,6 +40,7 @@ export class Header extends React.Component<IProps> {
       BackHandler.addEventListener("hardwareBackPress", this.handleBackButton);
     });
     this.willBlur = this.props.navigation.addListener("willBlur", () => {
+      // console.log("will blur");
       BackHandler.removeEventListener("hardwareBackPress", this.handleBackButton);
     });
   }
@@ -70,6 +71,15 @@ export class Header extends React.Component<IProps> {
     this.querySuggestions(query, this.props.categories);
   };
 
+  navigateToSearch = () => {
+    const { categories, query } = this.props;
+    BackHandler.removeEventListener("hardwareBackPress", this.handleBackButton);
+    const parentNavigation = this.props.navigation.dangerouslyGetParent();
+    const params = { query, categories, queryId: getQueryId(query, categories) };
+    if (parentNavigation) parentNavigation.replace("Search", params);
+    // this.props.navigation.push("Search", { query, categories, queryId: getQueryId(query, categories) });
+  };
+
   render() {
     return (
       <View style={{ width: "100%" }}>
@@ -78,6 +88,7 @@ export class Header extends React.Component<IProps> {
             <Icon name={"ios-search"} />
             <Input
               value={this.props.query}
+              onSubmitEditing={this.navigateToSearch}
               onChangeText={this.updateQuery}
               ref={this.setTextRef}
               placeholder={"Search"}

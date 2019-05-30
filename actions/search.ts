@@ -1,4 +1,4 @@
-import axios, { AxiosPromise } from "axios";
+import axios, { AxiosPromise, AxiosResponse } from "axios";
 import { AnyAction, Dispatch } from "redux";
 import { action } from "typesafe-actions";
 
@@ -40,20 +40,23 @@ export interface IApiCallConfig<Data> {
   beforeApiCall?: ApiCallCallback<Promise<AnyAction[]> | AnyAction[]>;
   loadingId?: ((state: IReducerState) => string) | string;
   shouldCallApi?: ApiCallCallback<boolean | AxiosPromise<void>>;
+  onError?: (e: any, state: IReducerState, dispatch: Dispatch) => Promise<AnyAction[]> | AnyAction[];
 }
 
-export const getQuerySuggestions = (query: string, selectedCategories: string[]): IApiCallConfig<string[]> => {
+export const getQuerySuggestions = (
+  query: string, selectedCategories: string[]
+): IApiCallConfig<AxiosResponse<string[]>> => {
   const categories = getCategoriesWithDefault(selectedCategories);
   const queryId = getQueryId(query, categories);
   const loadingId = `${AUTOCOMPLETE_QUERY}${queryId}`;
   return {
     loadingId,
-    afterApiCall: (data) => {
+    afterApiCall: (response) => {
       return [
         autoComplete.addAutoComplete(
           query,
           categories,
-          data.map((textObj: any) => textObj.text)
+          response.data.map((textObj: any) => textObj.text)
         )
       ];
     },

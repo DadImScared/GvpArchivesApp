@@ -8,6 +8,7 @@ import itemsById, { ItemsByIdState } from "./itemsById";
 import loading, { ILoadingState } from "./loading";
 import recentSearches, { RecentSearches } from "./recentSearches";
 import search, { getInitialSearchState, ISearchState } from "./search";
+import searchResults, { ISearchResults } from "./searchResults";
 
 export interface IReducerState {
   audioPlayer: IAudioPlayerState;
@@ -17,6 +18,7 @@ export interface IReducerState {
   itemsById: ItemsByIdState;
   recentSearches: RecentSearches;
   search: ISearchState;
+  searchResults: ISearchResults;
 }
 
 export const getInitialReducerState = (injectedState: DeepPartial<IReducerState> = {}) => _.merge({
@@ -26,7 +28,8 @@ export const getInitialReducerState = (injectedState: DeepPartial<IReducerState>
   itemsById: {},
   loading: {},
   recentSearches: [],
-  search: getInitialSearchState()
+  search: getInitialSearchState(),
+  searchResults: {}
 }, injectedState);
 
 const reducer = combineReducers<IReducerState>({
@@ -36,7 +39,8 @@ const reducer = combineReducers<IReducerState>({
   itemsById,
   loading,
   recentSearches,
-  search
+  search,
+  searchResults
 });
 
 export default reducer;

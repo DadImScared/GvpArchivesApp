@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`searchResults should select search results 1`] = `
+Object {
+  "isLoading": true,
+  "results": Array [
+    Object {
+      "category": "book",
+      "highlightedBody": "search body",
+      "item_id": "2",
+      "link": "item2-link",
+      "title": "item2",
+    },
+  ],
+  "suggestions": Array [],
+  "timeToLive": 2,
+}
+`;

@@ -9,6 +9,7 @@ import SideBar from "../components/SafeAreaSideBar";
 import {
   AutoComplete,
   Filter,
+  Search,
   SearchHeader,
   RecentSearches,
   ItemsByCategory
@@ -27,7 +28,7 @@ const SearchBarStack = createStackNavigator({
   SearchBarTabs: {
     screen: SearchBarTabs
   }
-}, { headerMode: "none"  });
+}, { headerMode: "none" });
 
 SearchBarStack.navigationOptions = () => ({ drawerLockMode: "locked-closed" });
 
@@ -40,7 +41,8 @@ const HomeStack = createStackNavigator({
       headerStyle: { height: Platform.select({ ios: 55, android: Header.HEIGHT }) },
       headerTitle: <SearchHeader {...props} />
     })
-  }
+  },
+  Search
 });
 
 HomeStack.navigationOptions = ({ navigation }) => {

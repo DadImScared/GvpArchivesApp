@@ -1,6 +1,8 @@
 import {  Middleware } from "redux";
 import { batchActions } from "redux-batched-actions";
 
+import { AxiosError } from "axios";
+
 import { loading } from "./actions";
 import { IApiCallConfig } from "./actions/search";
 import { IReducerState } from "./reducers";
@@ -18,7 +20,8 @@ export const callApiMiddleware: Middleware<{}, IReducerState> = ({ getState, dis
         beforeApiCall = () => [],
         apiCall,
         loadingId = "",
-        shouldCallApi = () => true
+        shouldCallApi = () => true,
+        onError = () => []
       } = action;
       const shouldLoad: string = typeof loadingId === "function" ? loadingId(getState()) : loadingId;
       // can return an axios promise to replace the original apiCall
@@ -41,10 +44,14 @@ export const callApiMiddleware: Middleware<{}, IReducerState> = ({ getState, dis
         ...(shouldLoad ? [loading.loadingStart(shouldLoad)] : []),
       ]));
 
-      const { data } = await request;
+      const response = await request.catch((e: AxiosError) => e);
 
       dispatch(batchActions([
-        ...(await afterApiCall(data, getState(), dispatch)),
+        ...(await (response instanceof Error ?
+            onError(response, getState(), dispatch)
+            :
+            afterApiCall(response, getState(), dispatch))
+        ),
         ...(shouldLoad ? [loading.loadingEnd(shouldLoad)] : []),
       ]));
 

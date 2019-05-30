@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`searchResults getSearchResults should have correct first page url and add search 1`] = `
+Array [
+  Object {
+    "meta": undefined,
+    "payload": Object {
+      "items": Object {
+        "item1": Object {
+          "category": "book",
+          "item_id": "item1",
+          "link": "item-1-link",
+          "title": "item-1",
+        },
+      },
+    },
+    "type": "itemsById/ADD_ITEMS",
+  },
+  Object {
+    "meta": undefined,
+    "payload": Object {
+      "nextPage": false,
+      "queryId": "query-book,movie",
+      "results": Array [
+        Object {
+          "highlightedTitle": undefined,
+          "item_id": "item1",
+        },
+      ],
+      "suggestions": Array [],
+    },
+    "type": "searchResults/ADD_SEARCH",
+  },
+]
+`;
+
+exports[`searchResults getSearchResults should have correct next page url and update search 1`] = `
+Array [
+  Object {
+    "meta": undefined,
+    "payload": Object {
+      "items": Object {
+        "item1": Object {
+          "category": "book",
+          "item_id": "item1",
+          "link": "item-1-link",
+          "title": "item-1",
+        },
+      },
+    },
+    "type": "itemsById/ADD_ITEMS",
+  },
+  Object {
+    "meta": undefined,
+    "payload": Object {
+      "nextPage": false,
+      "queryId": "query-book,movie",
+      "results": Array [
+        Object {
+          "highlightedTitle": undefined,
+          "item_id": "item1",
+        },
+      ],
+      "suggestions": Array [],
+    },
+    "type": "searchResults/UPDATE_SEARCH",
+  },
+]
+`;
+
+exports[`searchResults normalizeSearchResults should normalize results 1`] = `
+Object {
+  "itemsById": Object {
+    "78d1a9dc-3785-46f1-a6db-407e1fb40c2d": Object {
+      "category": "harikatha",
+      "item_id": "78d1a9dc-3785-46f1-a6db-407e1fb40c2d",
+      "link": "http://www.purebhakti.com/teachers/bhakti-discourses-mainmenu-61/52-discourses-2009/1086-the-glory-of-sri-radha.html",
+      "title": "The Glory of Sri Radha",
+    },
+    "ae955019-8cb3-4f4d-a578-48d9c065847d": Object {
+      "category": "harikatha",
+      "item_id": "ae955019-8cb3-4f4d-a578-48d9c065847d",
+      "link": "http://www.purebhakti.com/teachers/bhakti-discourses-mainmenu-61/22-discourses-2003/367-sri-radhastami-day.html",
+      "title": "Sri Radhastami Day",
+    },
+  },
+  "results": Array [
+    Object {
+      "highlightedBody": "[In 2007, in honor of Sri <em>Radhastami</em>, Srila Bhaktivedanta Narayana Gosvami Maharaja gave two discourses on the glories of Srimati Radhika; one on the eve of <em>Radhastami</em> and one on the following morning.",
+      "item_id": "78d1a9dc-3785-46f1-a6db-407e1fb40c2d",
+    },
+    Object {
+      "highlightedTitle": "Here is  a commentary, given on Sri <em>Radhastami</em> Day, two weeks later.  Here again, by the manifestation of the mercy of Srimati Radhika in the heart of Srila Maharaja, ever-new meanings are revealed.]",
+      "item_id": "ae955019-8cb3-4f4d-a578-48d9c065847d",
+    },
+  ],
+}
+`;

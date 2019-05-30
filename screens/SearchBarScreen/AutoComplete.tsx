@@ -1,6 +1,8 @@
 import * as React from "react";
 import { FlatList, ListRenderItem, Text, View } from "react-native";
+import { NavigationScreenProps } from "react-navigation";
 import { connect } from "react-redux";
+import { compose } from "recompose";
 
 import { Spinner } from "native-base";
 
@@ -9,7 +11,7 @@ import { getAutoCompleteScreen, IAutoCompleteScreenData } from "../../reducers/a
 
 import ListItem from "../../components/SearchBarScreen/AutoCompleteListItem";
 
-class AutoComplete extends React.Component<IAutoCompleteScreenData> {
+class AutoComplete extends React.Component<IAutoCompleteScreenData & NavigationScreenProps> {
   renderListItem: ListRenderItem<string> = ({ item }) => (
     <ListItem text={item} />
   );
@@ -43,4 +45,8 @@ class AutoComplete extends React.Component<IAutoCompleteScreenData> {
 
 const mapStateToProps = (state: IReducerState) => getAutoCompleteScreen(state);
 
-export default connect(mapStateToProps)(AutoComplete);
+const enhance = compose<any, any>(
+  connect(mapStateToProps)
+);
+
+export default enhance(AutoComplete);

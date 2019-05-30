@@ -20,7 +20,7 @@ export const HeaderItem = HeaderButtons.Item;
 class HeaderRight extends React.Component<NavigationScreenProps> {
 
   searchPress = () => {
-    this.props.navigation.navigate("SearchBar");
+    this.props.navigation.push("SearchBar");
   };
 
   render() {
