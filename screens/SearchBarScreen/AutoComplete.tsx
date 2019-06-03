@@ -11,10 +11,13 @@ import { getAutoCompleteScreen, IAutoCompleteScreenData } from "../../reducers/a
 
 import ListItem from "../../components/SearchBarScreen/AutoCompleteListItem";
 
-class AutoComplete extends React.Component<IAutoCompleteScreenData & NavigationScreenProps> {
-  renderListItem: ListRenderItem<string> = ({ item }) => (
-    <ListItem text={item} />
-  );
+interface IProps extends IAutoCompleteScreenData, NavigationScreenProps {}
+
+class AutoComplete extends React.Component<IProps> {
+  renderListItem: ListRenderItem<string> = ({ item }) => {
+    const { navigation, query, categories } = this.props;
+    return <ListItem navigation={navigation} query={query} categories={categories} text={item}/>;
+  };
 
   keyExtractor = (item: string, index: number) => `${item}-${this.props.queryId}-${index}`;
 
@@ -29,6 +32,7 @@ class AutoComplete extends React.Component<IAutoCompleteScreenData & NavigationS
               :
               results.length ?
                 <FlatList
+                  keyboardShouldPersistTaps={"always"}
                   keyExtractor={this.keyExtractor}
                   data={results}
                   renderItem={this.renderListItem}
