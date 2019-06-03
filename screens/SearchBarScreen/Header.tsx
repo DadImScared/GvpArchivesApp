@@ -55,6 +55,7 @@ export class Header extends React.Component<IProps> {
   }
 
   componentWillUnmount(): void {
+    BackHandler.removeEventListener("hardwareBackPress", this.handleBackButton);
     this.didFocus && this.didFocus.remove();
     this.willBlur && this.willBlur.remove();
   }
@@ -73,7 +74,6 @@ export class Header extends React.Component<IProps> {
 
   navigateToSearch = () => {
     const { categories, query } = this.props;
-    BackHandler.removeEventListener("hardwareBackPress", this.handleBackButton);
     const parentNavigation = this.props.navigation.dangerouslyGetParent();
     const params = { query, categories, queryId: getQueryId(query, categories) };
     if (parentNavigation) parentNavigation.replace("Search", params);

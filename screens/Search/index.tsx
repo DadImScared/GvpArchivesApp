@@ -6,6 +6,7 @@ import { compose, hoistStatics, shouldUpdate } from "recompose";
 
 import { Text } from "native-base";
 
+import { recentSearches } from "../../actions";
 import { getSearchResults } from "../../actions/searchResults";
 import Loading from "../../components/Loading";
 import RenderItem from "../../components/RenderItem";
@@ -17,6 +18,7 @@ import { getNavigationParams } from "../../utils/navigation";
 import { headerRight } from "../Header";
 
 interface IProps extends NavigationScreenProps, ISearchResultData {
+  addRecentSearch: (query: string, categories: string[]) => void;
   getSearchResults: (query: string, categories: string[], refresh?: boolean) => void;
 }
 
@@ -35,6 +37,8 @@ export class Search extends React.Component<IProps> {
 
   componentDidMount() {
     this.fetchResults();
+    const [query, categories] = getNavigationParams({ query: "", categories: [] }, this.props.navigation);
+    this.props.addRecentSearch(query, categories);
   }
 
   fetchResults = () => {
@@ -101,6 +105,7 @@ export class Search extends React.Component<IProps> {
 const mapStateToProps = (state: IReducerState, props: NavigationScreenProps) => selectSearchResults(state, props);
 
 const mapDispatchToProps = (dispatch: any) => ({
+  addRecentSearch: (query: string, categories: string[]) => dispatch(recentSearches.addSearch(query, categories)),
   getSearchResults: (query: string, categories: string[], refresh = false) => {
     dispatch(getSearchResults(query, categories, refresh));
   }

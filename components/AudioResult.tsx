@@ -46,7 +46,7 @@ export class AudioResult extends React.Component<IAudioResultProps> {
         <CardItem style={{ justifyContent: "space-between" }} footer={true}>
           <Button
             onPress={this.onPlay}
-            style={{...styles.button, backgroundColor: routes[item.category].icon.style.color}}
+            style={{...styles.button, backgroundColor: routes[item.category].icon.style.color }}
           >
             <Text style={styles.buttonText}>
               Play

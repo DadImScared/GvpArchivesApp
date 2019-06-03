@@ -1,14 +1,36 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { FlatList, ListRenderItem } from "react-native";
+import { NavigationScreenProps } from "react-navigation";
+import { connect } from "react-redux";
 
-export class RecentSearches extends React.Component {
+import RecentSearchItem from "../../components/SearchBarScreen/RecentSearchItem";
+import { IReducerState } from "../../reducers";
+import { IRecentSearch, RecentSearches as RecentSearch } from "../../reducers/recentSearches";
+
+interface IProps extends NavigationScreenProps {
+  searches: RecentSearch;
+}
+
+export class RecentSearches extends React.Component<IProps> {
+  renderListItem: ListRenderItem<IRecentSearch> = ({ item }) => (
+    <RecentSearchItem search={item} navigation={this.props.navigation}/>
+  );
+
+  keyExtractor = ({ query, timestamp }: IRecentSearch, index: number) => {
+    return `${query}-${timestamp}-${index}`;
+  };
+
   render() {
     return (
-      <View>
-        <Text>Recent searches</Text>
-      </View>
+      <FlatList
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderListItem}
+        data={this.props.searches}
+      />
     );
   }
 }
 
-export default RecentSearches;
+const mapStateToProps = (state: IReducerState) => ({ searches: state.recentSearches });
+
+export default connect(mapStateToProps)(RecentSearches);

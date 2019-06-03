@@ -22,7 +22,7 @@ exports[`ButtonGroup should render 1`] = `
       Object {
         "alignItems": "center",
         "alignSelf": "flex-start",
-        "backgroundColor": null,
+        "backgroundColor": "",
         "borderBottomWidth": null,
         "borderColor": "#007aff",
         "borderLeftWidth": null,
