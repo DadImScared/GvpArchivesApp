@@ -35,6 +35,7 @@ export class Header extends React.Component<IProps> {
   querySuggestions = _.debounce(this.props.getQuerySuggestions, 150);
 
   componentDidMount() {
+    const { query, categories } = this.props;
     this.didFocus = this.props.navigation.addListener("didFocus", () => {
       this.textRef && this.textRef._root.focus();
       BackHandler.addEventListener("hardwareBackPress", this.handleBackButton);
@@ -43,6 +44,10 @@ export class Header extends React.Component<IProps> {
       // console.log("will blur");
       BackHandler.removeEventListener("hardwareBackPress", this.handleBackButton);
     });
+
+    if (query) {
+      this.props.getQuerySuggestions(query, categories);
+    }
   }
 
   componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<{}>, snapshot?: any): void {
