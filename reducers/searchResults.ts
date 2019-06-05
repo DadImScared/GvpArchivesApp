@@ -86,3 +86,29 @@ export const selectSearchResults = createSelector<
     };
   }
 );
+
+export const makeSelectSearchResults = () => createSelector<
+  IReducerState,
+  NavigationScreenProps,
+  ISearchResult,
+  boolean,
+  ItemsByIdState,
+  ISearchResultData
+  >(
+  [
+    (state, props) => state.searchResults[props.navigation.getParam("queryId")] || defaultSearchResult,
+    (state, props) => state.loading[`${SEARCH_RESULTS}${props.navigation.getParam("queryId")}`],
+    (state) => state.itemsById
+  ],
+  (searchResult, isLoading, itemsById) => {
+    return {
+      isLoading: isLoading === undefined ? true : isLoading,
+      results: searchResult.results.map((item) => ({
+        ...itemsById[item.item_id],
+        ...item
+      })),
+      suggestions: searchResult.suggestions,
+      timeToLive: searchResult.timeToLive,
+    };
+  }
+);

@@ -48,27 +48,30 @@ class NativeAudioPlayer extends React.Component<INativeAudioPlayerProps> {
     }
   };
 
-  componentDidMount(): void {
-    (Object.keys(this.props) as AudioControls[]).forEach((statusUpdate) => {
+  async componentDidMount(): Promise<void> {
+    for (const key of Object.keys(this.props) as AudioControls[]) {
       // @ts-ignore
-      const statusUpdateMethod = this[`_${statusUpdate}`];
+      const statusUpdateMethod = this[`_${key}`];
 
       if (statusUpdateMethod) {
-        statusUpdateMethod(this.props[statusUpdate]);
+        await statusUpdateMethod(this.props[key]);
       }
-    });
+    }
   }
 
-  componentDidUpdate(prevProps: Readonly<INativeAudioPlayerProps>, prevState: Readonly<{}>, snapshot?: any): void {
-    (Object.keys(this.props) as AudioControls[]).forEach((statusUpdate) => {
+  async componentDidUpdate(
+    prevProps: Readonly<INativeAudioPlayerProps>,
+    prevState: Readonly<{}>, snapshot?: any
+  ): Promise<void> {
+    for (const key of Object.keys(this.props) as AudioControls[]) {
       // @ts-ignore
-      const statusUpdateMethod = this[`_${statusUpdate}`];
-      const newStatusUpdate = this.props[statusUpdate];
+      const statusUpdateMethod = this[`_${key}`];
+      const newStatusUpdate = this.props[key];
 
-      if (statusUpdateMethod && newStatusUpdate !== prevProps[statusUpdate]) {
-        statusUpdateMethod(newStatusUpdate);
+      if (statusUpdateMethod && newStatusUpdate !== prevProps[key]) {
+        await statusUpdateMethod(this.props[key]);
       }
-    });
+    }
   }
 
   componentWillUnmount(): void {

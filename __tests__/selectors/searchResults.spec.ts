@@ -1,6 +1,6 @@
 import { getInitialReducerState } from "../../reducers";
 import { getQueryId } from "../../reducers/search";
-import { selectSearchResults } from "../../reducers/searchResults";
+import { makeSelectSearchResults } from "../../reducers/searchResults";
 
 describe("searchResults", () => {
   it("should select search results", () => {
@@ -31,6 +31,6 @@ describe("searchResults", () => {
       }
     } as any;
     // console.log(selectSearchResults(state, props));
-    expect(selectSearchResults(state, props)).toMatchSnapshot();
+    expect(makeSelectSearchResults()(state, props)).toMatchSnapshot();
   });
 });

@@ -18,13 +18,8 @@ interface IDurationSeekerProps extends AudioPlayerStateAndActions<
 }
 
 class DurationSeeker extends React.Component<IDurationSeekerProps> {
-
   onSlideStart = () => {
     this.props.setPlaying(false);
-  };
-
-  onValueChange = (val: number) => {
-    this.props.setSeekTo(val);
   };
 
   onSlideComplete = (value: number) => {
@@ -42,7 +37,6 @@ class DurationSeeker extends React.Component<IDurationSeekerProps> {
         <Slider
           {...other}
           onTouchStart={this.onSlideStart}
-          onValueChange={this.onValueChange}
           value={sliderPosition}
           onSlidingComplete={this.onSlideComplete}
           style={{ flex: 1 }}

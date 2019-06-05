@@ -13,7 +13,7 @@ import RenderItem from "../../components/RenderItem";
 import { Suggestion } from "../../components/Search";
 import { IReducerState } from "../../reducers";
 import { getQueryId } from "../../reducers/search";
-import { ISearchResultData, selectSearchResults } from "../../reducers/searchResults";
+import { ISearchResultData, makeSelectSearchResults } from "../../reducers/searchResults";
 import { getNavigationParams } from "../../utils/navigation";
 import { headerRight } from "../Header";
 
@@ -102,7 +102,10 @@ export class Search extends React.Component<IProps> {
   }
 }
 
-const mapStateToProps = (state: IReducerState, props: NavigationScreenProps) => selectSearchResults(state, props);
+const mapStateToProps = () => {
+  const selectSearchResults = makeSelectSearchResults();
+  return (state: IReducerState, props: NavigationScreenProps) => selectSearchResults(state, props);
+};
 
 const mapDispatchToProps = (dispatch: any) => ({
   addRecentSearch: (query: string, categories: string[]) => dispatch(recentSearches.addSearch(query, categories)),
@@ -114,7 +117,9 @@ const mapDispatchToProps = (dispatch: any) => ({
 const enhance = hoistStatics<IProps>(
   compose(
     connect(mapStateToProps, mapDispatchToProps),
-    shouldUpdate((props, nextProps: IProps) => nextProps.navigation.isFocused())
+    shouldUpdate(
+      (props, nextProps: IProps) => nextProps.navigation.isFocused() && props.isLoading !== nextProps.isLoading
+    )
   )
 );
 
