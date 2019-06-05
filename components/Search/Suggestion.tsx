@@ -9,7 +9,7 @@ interface IProps extends NativeBase.Button {
 }
 
 const styles: any = StyleSheet.create({
-  button: { margin: 8, padding: 8, paddingTop: 8, paddingBottom: 8 }
+  button: { margin: 8 }
 });
 
 export class Suggestion extends React.Component<IProps> {
@@ -22,7 +22,7 @@ export class Suggestion extends React.Component<IProps> {
     const { suggestion, onPressSuggestion, ...other } = this.props;
     return (
       <Button small={true} primary={true} style={styles.button} onPress={this.onPressSuggestion} {...other}>
-        <Text>{suggestion}</Text>
+        <Text>{suggestion.toUpperCase()}</Text>
       </Button>
     );
   }
