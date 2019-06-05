@@ -42,7 +42,12 @@ const HomeStack = createStackNavigator({
       headerTitle: <SearchHeader {...props} />
     })
   },
-  Search
+  Search: {
+    screen: Search,
+    navigationOptions: {
+      headerBackTitle: "Back"
+    }
+  }
 });
 
 HomeStack.navigationOptions = ({ navigation }) => {
