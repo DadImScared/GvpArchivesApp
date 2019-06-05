@@ -6,17 +6,26 @@ import { compose } from "recompose";
 
 import { Spinner } from "native-base";
 
+import { search } from "../../actions";
+import ListItem from "../../components/SearchBarScreen/AutoCompleteListItem";
 import { IReducerState } from "../../reducers";
 import { getAutoCompleteScreen, IAutoCompleteScreenData } from "../../reducers/autoComplete";
+import { SearchStateAndActions } from "../../reducers/search";
 
-import ListItem from "../../components/SearchBarScreen/AutoCompleteListItem";
-
-interface IProps extends IAutoCompleteScreenData, NavigationScreenProps {}
+interface IProps extends IAutoCompleteScreenData, NavigationScreenProps, SearchStateAndActions<"updateSearchQuery"> {}
 
 class AutoComplete extends React.Component<IProps> {
   renderListItem: ListRenderItem<string> = ({ item }) => {
-    const { navigation, query, categories } = this.props;
-    return <ListItem navigation={navigation} query={query} categories={categories} text={item}/>;
+    const { navigation, query, categories, updateSearchQuery } = this.props;
+    return (
+      <ListItem
+        navigation={navigation}
+        query={query}
+        categories={categories}
+        text={item}
+        updateSearchQuery={updateSearchQuery}
+      />
+    );
   };
 
   keyExtractor = (item: string, index: number) => `${item}-${this.props.queryId}-${index}`;
@@ -49,8 +58,12 @@ class AutoComplete extends React.Component<IProps> {
 
 const mapStateToProps = (state: IReducerState) => getAutoCompleteScreen(state);
 
+const mapDispatchToProps = (dispatch: any) => ({
+  updateSearchQuery: (query: string) => dispatch(search.updateSearchQuery(query))
+});
+
 const enhance = compose<any, any>(
-  connect(mapStateToProps)
+  connect(mapStateToProps, mapDispatchToProps)
 );
 
 export default enhance(AutoComplete);

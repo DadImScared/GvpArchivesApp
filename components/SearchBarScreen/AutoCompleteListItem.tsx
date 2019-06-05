@@ -10,12 +10,14 @@ import { searchParams } from "../../screens/Search";
 interface IProps extends ISearchState {
   text: string;
   navigation: NavigationScreenProp<any>;
+  updateSearchQuery: (query: string) => void;
 }
 
 export class AutoCompleteListItem extends React.Component<IProps> {
 
   navigateSearch = () => {
-    const { navigation, text, categories } = this.props;
+    const { navigation, text, categories, updateSearchQuery } = this.props;
+    updateSearchQuery(text);
     const parentNavigation = (navigation as any).dangerouslyGetParent().dangerouslyGetParent().dangerouslyGetParent();
     parentNavigation.replace("Search", searchParams(text, categories));
   };
