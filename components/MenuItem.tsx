@@ -8,15 +8,15 @@ import { IRouteComponent } from "./SideBar";
 export interface IMenuItemProps {
   to: string;
   route: IRouteComponent;
-  navigateRoute: (to: string) => void;
+  navigateRoute: (to: string, route: IRouteComponent) => void;
   active: boolean;
 }
 
 export class MenuItem extends React.Component<IMenuItemProps> {
 
   navigateRoute = () => {
-    const { to, navigateRoute } = this.props;
-    navigateRoute(to);
+    const { to, navigateRoute, route } = this.props;
+    navigateRoute(to, route);
   };
 
   shouldComponentUpdate(nextProps: IMenuItemProps) {

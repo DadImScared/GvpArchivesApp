@@ -8,6 +8,7 @@ import MenuItem from "./MenuItem";
 
 export interface IRouteComponent {
   component?: any;
+  routePath?: string;
   displayName: string;
   icon: NativeBase.Icon;
 }
@@ -116,7 +117,7 @@ export class SideBar extends React.Component<NavigationScreenProps, { activeRout
     };
   }
 
-  navigateRoute = (to: string) => {
+  navigateRoute = (to: string, route: IRouteComponent) => {
     const { navigation } = this.props;
     const { activeRoute } = this.state;
     navigation.closeDrawer();
@@ -126,7 +127,7 @@ export class SideBar extends React.Component<NavigationScreenProps, { activeRout
       params: {
         category: to
       },
-      routeName: "ItemsByCategory"
+      routeName: route.routePath || "ItemsByCategory"
     }));
   };
 
@@ -157,7 +158,7 @@ export class SideBar extends React.Component<NavigationScreenProps, { activeRout
     return nextRoute !== currentRoute || (this.state.activeRoute !== nextState.activeRoute);
   }
 
-  renderRow = ([to, route]: [string, IRouteComponent]) => {
+  renderRow = ([to, route]: any) => {
     const routeStyle = route.icon.style || {};
     return (
       <MenuItem

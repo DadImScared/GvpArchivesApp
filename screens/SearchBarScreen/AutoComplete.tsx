@@ -14,7 +14,7 @@ import { SearchStateAndActions } from "../../reducers/search";
 
 interface IProps extends IAutoCompleteScreenData, NavigationScreenProps, SearchStateAndActions<"updateSearchQuery"> {}
 
-class AutoComplete extends React.Component<IProps> {
+export class AutoComplete extends React.Component<IProps> {
   renderListItem: ListRenderItem<string> = ({ item }) => {
     const { navigation, query, categories, updateSearchQuery } = this.props;
     return (
@@ -66,4 +66,4 @@ const enhance = compose<any, any>(
   connect(mapStateToProps, mapDispatchToProps)
 );
 
-export default enhance(AutoComplete);
+export default enhance(AutoComplete) as React.ComponentType;

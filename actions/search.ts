@@ -41,6 +41,7 @@ export interface IApiCallConfig<Data> {
   loadingId?: ((state: IReducerState) => string) | string;
   shouldCallApi?: ApiCallCallback<boolean | AxiosPromise<void>>;
   onError?: (e: any, state: IReducerState, dispatch: Dispatch) => Promise<AnyAction[]> | AnyAction[];
+  type: string;
 }
 
 export const getQuerySuggestions = (
@@ -69,7 +70,8 @@ export const getQuerySuggestions = (
       if (!currentAutoComplete) return true;
 
       return !isValidValidTimeToLive(currentAutoComplete.timeToLive);
-    }
+    },
+    type: "callApiMiddleware",
   };
 };
 

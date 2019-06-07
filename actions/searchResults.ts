@@ -100,7 +100,8 @@ export const getSearchResults = (
       }
 
       return true;
-    }
+    },
+    type: "callApiMiddleware"
   };
 };
 

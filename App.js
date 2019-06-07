@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import {Platform, StatusBar, StyleSheet, View, YellowBox} from 'react-native';
+YellowBox.ignoreWarnings([ "Require cycle:", "" ]);
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import { Provider } from "react-redux";
@@ -9,6 +10,8 @@ import thunk from "redux-thunk";
 import reducers from "./reducers"
 import AudioPlayer from "./components/AudioPlayer";
 import { callApiMiddleware } from "./callApiMiddleware";
+// used when storybook is active
+import Storybook from "./storybook";
 
 const store = createStore(
   enableBatching(reducers),
@@ -23,6 +26,8 @@ export default class App extends React.Component {
   };
 
   render() {
+    // uncomment to show story book
+    // return <Storybook/>;
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
@@ -57,7 +62,7 @@ export default class App extends React.Component {
         Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
-        'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+        // 'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
       }),
     ]);
   };

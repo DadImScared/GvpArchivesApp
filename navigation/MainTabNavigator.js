@@ -24,7 +24,7 @@ const SearchBarTabs = createMaterialTopTabNavigator({
   tabBarOptions: { scrollEnabled: Platform.select({ ios: true, android: false }) }
 });
 
-const SearchBarStack = createStackNavigator({
+export const SearchBarStack = createStackNavigator({
   SearchBarTabs: {
     screen: SearchBarTabs
   }

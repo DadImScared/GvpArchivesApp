@@ -55,6 +55,8 @@ export const callApiMiddleware: Middleware<{}, IReducerState> = ({ getState, dis
         ...(shouldLoad ? [loading.loadingEnd(shouldLoad)] : []),
       ]));
 
+      return next(action);
+
     } else {
       return next(action);
     }
