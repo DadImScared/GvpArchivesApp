@@ -18,7 +18,7 @@ const loadAssets = async () => {
       ...Icon.Ionicons.font,
       Roboto: require("native-base/Fonts/Roboto.ttf"),
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-      // We include SpaceMono because we use it in HomeScreen.js. Feel free
+      // We include SpaceMono because we use it in HomeScreen.tsx. Feel free
       // to remove this if you are not using it in your app
       // 'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
     }),
@@ -38,9 +38,8 @@ const StorybookUIRoot = getStorybookUI({
   host: "192.168.0.131", port: 7007
 });
 
-// Actually need to use this regardless of expo
 // If you are using React Native vanilla and after installation you don't see your app name here, write it manually.
 // If you use Expo you can safely remove this line.
-AppRegistry.registerComponent("krsna_us_app", () => StorybookUIRoot);
+// AppRegistry.registerComponent("krsna_us_app", () => StorybookUIRoot);
 
 export default StorybookUIRoot;

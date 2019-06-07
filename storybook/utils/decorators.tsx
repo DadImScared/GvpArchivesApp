@@ -6,6 +6,7 @@ import { enableBatching } from "redux-batched-actions";
 import thunk from "redux-thunk";
 
 import { action } from "@storybook/addon-actions";
+import { View } from "native-base";
 
 import { callApiMiddleware } from "../../callApiMiddleware";
 import reducers, { IReducerState } from "../../reducers";
@@ -42,4 +43,12 @@ export const withProvider = (story: any) => {
 export const withNavigator = (navigator: any) => () => {
   const Navigator = createAppContainer(navigator());
   return <Navigator />;
+};
+
+export const withHeaderSpace = (story: any) => {
+  return (
+    <View style={{ paddingTop: 50, paddingBottom: 50 }}>
+      {story()}
+    </View>
+  );
 };

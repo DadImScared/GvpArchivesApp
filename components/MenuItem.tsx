@@ -8,7 +8,7 @@ import { IRouteComponent } from "./SideBar";
 export interface IMenuItemProps {
   to: string;
   route: IRouteComponent;
-  navigateRoute: (to: string, route: IRouteComponent) => void;
+  navigateRoute: (to: string, route?: IRouteComponent) => void;
   active: boolean;
 }
 

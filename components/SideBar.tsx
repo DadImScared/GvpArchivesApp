@@ -117,7 +117,7 @@ export class SideBar extends React.Component<NavigationScreenProps, { activeRout
     };
   }
 
-  navigateRoute = (to: string, route: IRouteComponent) => {
+  navigateRoute = (to: string, route: IRouteComponent = { routePath: "ItemsByCategory" } as any) => {
     const { navigation } = this.props;
     const { activeRoute } = this.state;
     navigation.closeDrawer();
