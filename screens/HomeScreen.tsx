@@ -5,6 +5,7 @@ import { ScrollView } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 
 import CategoryCard from "../components/Home/CategoryCard";
+import MenuIcon from "../components/MenuIcon";
 import { categoryDescriptions } from "../utils/home";
 import { headerRight } from "./Header";
 
@@ -18,6 +19,7 @@ export interface ICategoryCard {
 
 export default class HomeScreen extends React.Component<NavigationScreenProps> {
   static navigationOptions = (props: NavigationScreenProps) => ({
+    headerLeft: <MenuIcon {...props} />,
     headerRight: headerRight(props),
     title: "Home"
   });
