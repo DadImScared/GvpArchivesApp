@@ -49,7 +49,7 @@ export const categoryDescriptions: any[] = [
       " 1996 to 2010, as well as his classes given in India from 1991-1995. They are extremely inspiring " +
       "and enlivening to read and to take into our hearts.",
     id: "harikatha",
-    title: "harikatha",
+    title: "Harikatha",
     uri: "https://gvparchives.com/static/media/16195947_1692262924120955_6310857941221688920_n.ca0cf4c5.jpg"
   },
   {
@@ -121,7 +121,7 @@ export const categoryDescriptions: any[] = [
     body: "An unprecedented collection of devotional songs Sanskrit, Bengali and Hindi devotional poems, prayers," +
       " songs and bhajanas written by the Gaudiya Vaisnava acaryas and compiled for the practicing devotee.",
     id: "song",
-    title: "Song",
+    title: "Songs",
     uri: "https://gvparchives.com/static/media/madhavamaharaj.8cd1e9c9.jpg"
   },
   {
