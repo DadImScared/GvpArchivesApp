@@ -151,7 +151,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   toggleCategory: (category: string) => dispatch(search.toggleCategory(category))
 });
 
-const enhance = compose<IProps, IProps>(
+const enhance = compose<IProps, ScaledSize>(
   withDimensions("window"),
   connect(mapStateToProps, mapDispatchToProps)
 );

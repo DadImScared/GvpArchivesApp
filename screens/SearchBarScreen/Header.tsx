@@ -7,7 +7,7 @@ import { Dispatch } from "redux";
 import _ from "lodash";
 import { Header as BaseHeader, Input, Item } from "native-base";
 
-import { Icon } from "../../components/Icon";
+import Icon from "../../components/Icon";
 
 import { search } from "../../actions";
 import { getQuerySuggestions } from "../../actions/search";

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecentSearches should navigate onPress list item 1`] = `
+Array [
+  "Search",
+  Object {
+    "categories": Array [
+      "book",
+    ],
+    "query": "radha",
+    "queryId": "radha-book",
+  },
+]
+`;

@@ -9,5 +9,779 @@ exports[`SideBar should render 1`] = `
       "height": 1334,
     }
   }
-/>
+>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": undefined,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableOnAndroid={false}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollIntoView={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      }
+    }
+    update={[Function]}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          button={true}
+          icon={true}
+          onPress={[Function]}
+          selected={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#c9c9c9",
+              "flexDirection": "row",
+              "height": 44,
+              "justifyContent": "center",
+              "marginLeft": 16,
+              "paddingBottom": null,
+              "paddingRight": null,
+              "paddingTop": null,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": null,
+                "alignSelf": null,
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 1,
+                "height": 44,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 17,
+                  "marginLeft": null,
+                  "marginRight": 10,
+                }
+              }
+              uppercase={false}
+            >
+              Bhagavat Patrika
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 0,
+                "flexDirection": "row",
+                "height": 44,
+                "justifyContent": "flex-end",
+                "paddingBottom": null,
+                "paddingLeft": null,
+                "paddingRight": 15,
+                "paddingTop": null,
+              }
+            }
+          >
+            <Icon
+              name="open-book"
+              style={
+                Object {
+                  "color": "#ffc107",
+                }
+              }
+              type="Entypo"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          button={true}
+          icon={true}
+          onPress={[Function]}
+          selected={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#c9c9c9",
+              "flexDirection": "row",
+              "height": 44,
+              "justifyContent": "center",
+              "marginLeft": 16,
+              "paddingBottom": null,
+              "paddingRight": null,
+              "paddingTop": null,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": null,
+                "alignSelf": null,
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 1,
+                "height": 44,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 17,
+                  "marginLeft": null,
+                  "marginRight": 10,
+                }
+              }
+              uppercase={false}
+            >
+              Books
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 0,
+                "flexDirection": "row",
+                "height": 44,
+                "justifyContent": "flex-end",
+                "paddingBottom": null,
+                "paddingLeft": null,
+                "paddingRight": 15,
+                "paddingTop": null,
+              }
+            }
+          >
+            <Icon
+              name="book"
+              style={
+                Object {
+                  "color": "#009688",
+                }
+              }
+              type="FontAwesome"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          button={true}
+          icon={true}
+          onPress={[Function]}
+          selected={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#c9c9c9",
+              "flexDirection": "row",
+              "height": 44,
+              "justifyContent": "center",
+              "marginLeft": 16,
+              "paddingBottom": null,
+              "paddingRight": null,
+              "paddingTop": null,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": null,
+                "alignSelf": null,
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 1,
+                "height": 44,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 17,
+                  "marginLeft": null,
+                  "marginRight": 10,
+                }
+              }
+              uppercase={false}
+            >
+              Harikatha
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 0,
+                "flexDirection": "row",
+                "height": 44,
+                "justifyContent": "flex-end",
+                "paddingBottom": null,
+                "paddingLeft": null,
+                "paddingRight": 15,
+                "paddingTop": null,
+              }
+            }
+          >
+            <Icon
+              name="open-book"
+              style={
+                Object {
+                  "color": "#f4511e",
+                }
+              }
+              type="Entypo"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          button={true}
+          icon={true}
+          onPress={[Function]}
+          selected={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#c9c9c9",
+              "flexDirection": "row",
+              "height": 44,
+              "justifyContent": "center",
+              "marginLeft": 16,
+              "paddingBottom": null,
+              "paddingRight": null,
+              "paddingTop": null,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": null,
+                "alignSelf": null,
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 1,
+                "height": 44,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 17,
+                  "marginLeft": null,
+                  "marginRight": 10,
+                }
+              }
+              uppercase={false}
+            >
+              Harmonist Magazine
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 0,
+                "flexDirection": "row",
+                "height": 44,
+                "justifyContent": "flex-end",
+                "paddingBottom": null,
+                "paddingLeft": null,
+                "paddingRight": 15,
+                "paddingTop": null,
+              }
+            }
+          >
+            <Icon
+              name="open-book"
+              style={
+                Object {
+                  "color": "#9c27b0",
+                }
+              }
+              type="Entypo"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          button={true}
+          icon={true}
+          onPress={[Function]}
+          selected={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#c9c9c9",
+              "flexDirection": "row",
+              "height": 44,
+              "justifyContent": "center",
+              "marginLeft": 16,
+              "paddingBottom": null,
+              "paddingRight": null,
+              "paddingTop": null,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": null,
+                "alignSelf": null,
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 1,
+                "height": 44,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 17,
+                  "marginLeft": null,
+                  "marginRight": 10,
+                }
+              }
+              uppercase={false}
+            >
+              Harmonist Monthly
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 0,
+                "flexDirection": "row",
+                "height": 44,
+                "justifyContent": "flex-end",
+                "paddingBottom": null,
+                "paddingLeft": null,
+                "paddingRight": 15,
+                "paddingTop": null,
+              }
+            }
+          >
+            <Icon
+              name="open-book"
+              style={
+                Object {
+                  "color": "#ff8f00",
+                }
+              }
+              type="Entypo"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          button={true}
+          icon={true}
+          onPress={[Function]}
+          selected={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#c9c9c9",
+              "flexDirection": "row",
+              "height": 44,
+              "justifyContent": "center",
+              "marginLeft": 16,
+              "paddingBottom": null,
+              "paddingRight": null,
+              "paddingTop": null,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": null,
+                "alignSelf": null,
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 1,
+                "height": 44,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 17,
+                  "marginLeft": null,
+                  "marginRight": 10,
+                }
+              }
+              uppercase={false}
+            >
+              Lectures
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 0,
+                "flexDirection": "row",
+                "height": 44,
+                "justifyContent": "flex-end",
+                "paddingBottom": null,
+                "paddingLeft": null,
+                "paddingRight": 15,
+                "paddingTop": null,
+              }
+            }
+          >
+            <Icon
+              name="headphones"
+              style={
+                Object {
+                  "color": "#43a047",
+                }
+              }
+              type="MaterialCommunityIcons"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          button={true}
+          icon={true}
+          onPress={[Function]}
+          selected={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#c9c9c9",
+              "flexDirection": "row",
+              "height": 44,
+              "justifyContent": "center",
+              "marginLeft": 16,
+              "paddingBottom": null,
+              "paddingRight": null,
+              "paddingTop": null,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": null,
+                "alignSelf": null,
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 1,
+                "height": 44,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 17,
+                  "marginLeft": null,
+                  "marginRight": 10,
+                }
+              }
+              uppercase={false}
+            >
+              Movies
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 0,
+                "flexDirection": "row",
+                "height": 44,
+                "justifyContent": "flex-end",
+                "paddingBottom": null,
+                "paddingLeft": null,
+                "paddingRight": 15,
+                "paddingTop": null,
+              }
+            }
+          >
+            <Icon
+              name="video"
+              style={
+                Object {
+                  "color": "#f44336",
+                }
+              }
+              type="Entypo"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          button={true}
+          icon={true}
+          onPress={[Function]}
+          selected={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#c9c9c9",
+              "flexDirection": "row",
+              "height": 44,
+              "justifyContent": "center",
+              "marginLeft": 16,
+              "paddingBottom": null,
+              "paddingRight": null,
+              "paddingTop": null,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": null,
+                "alignSelf": null,
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 1,
+                "height": 44,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 17,
+                  "marginLeft": null,
+                  "marginRight": 10,
+                }
+              }
+              uppercase={false}
+            >
+              Songs
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#c9c9c9",
+                "flex": 0,
+                "flexDirection": "row",
+                "height": 44,
+                "justifyContent": "flex-end",
+                "paddingBottom": null,
+                "paddingLeft": null,
+                "paddingRight": 15,
+                "paddingTop": null,
+              }
+            }
+          >
+            <Icon
+              name="music"
+              style={
+                Object {
+                  "color": "#ab47bc",
+                }
+              }
+              type="MaterialCommunityIcons"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
 `;

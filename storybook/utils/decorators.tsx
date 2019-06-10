@@ -25,11 +25,13 @@ const logActionToStorybook: Middleware<{}, IReducerState> = ({ getState }) => {
   };
 };
 
-const makeStore = () => createStore(enableBatching(reducers), compose(
-  applyMiddleware(thunk, callApiMiddleware, logActionToStorybook)
+export const makeStore = (
+  ...args: Array<Middleware<any, IReducerState>>
+) => createStore(enableBatching(reducers), compose(
+  applyMiddleware(thunk, callApiMiddleware, ...args)
 ));
 
-const store = makeStore();
+const store = makeStore(logActionToStorybook);
 
 export const withProvider = (story: any) => {
   return (
@@ -47,7 +49,7 @@ export const withNavigator = (navigator: any) => () => {
 
 export const withHeaderSpace = (story: any) => {
   return (
-    <View style={{ paddingTop: 50, paddingBottom: 50 }}>
+    <View style={{ paddingTop: 50, paddingBottom: 50, flex: 1 }}>
       {story()}
     </View>
   );
