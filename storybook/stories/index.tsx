@@ -10,9 +10,11 @@ import { SearchBarStack } from "../../navigation/MainTabNavigator";
 import { getQueryId } from "../../reducers/search";
 import { SearchHeader } from "../../screens";
 import HomeScreen from "../../screens/HomeScreen";
+import { Search } from "../../screens/Search";
 import { AutoComplete } from "../../screens/SearchBarScreen/AutoComplete";
 import Filter from "../../screens/SearchBarScreen/Filter";
 import { RecentSearches } from "../../screens/SearchBarScreen/RecentSearches";
+import { searchTestProps } from "../../utils/testData/search";
 import { withHeaderSpace, withNavigator, withProvider } from "../utils/decorators";
 import CenterView from "./CenterView";
 
@@ -84,5 +86,13 @@ import CenterView from "./CenterView";
     };
     return (
       <RecentSearches {...props} />
+    );
+  });
+
+(storiesOf("Search", module) as Story)
+  .addDecorator(withHeaderSpace)
+  .add("with suggestions", () => {
+    return (
+      <Search {...searchTestProps({ storybook: true }) as any} />
     );
   });
