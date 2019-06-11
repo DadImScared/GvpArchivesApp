@@ -6,6 +6,7 @@
     </HTMLCodeStyleSettings>
     <TypeScriptCodeStyleSettings version="1">
       <option name="FORCE_SEMICOLON_STYLE" value="true" />
+      <option name="FORCE_QUOTE_STYlE" value="true" />
       <option name="SPACES_WITHIN_IMPORTS" value="true" />
       <option name="USE_PATH_MAPPING" value="NEVER" />
     </TypeScriptCodeStyleSettings>

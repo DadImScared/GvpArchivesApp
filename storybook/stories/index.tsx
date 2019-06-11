@@ -14,6 +14,7 @@ import { AutoComplete } from "../../screens/SearchBarScreen/AutoComplete";
 import Filter from "../../screens/SearchBarScreen/Filter";
 import { RecentSearches } from "../../screens/SearchBarScreen/RecentSearches";
 import { autoCompleteTestData } from "../../utils/testData/autoComplete";
+import { recentSearchesTestData } from "../../utils/testData/recentSearches";
 import { searchTestProps } from "../../utils/testData/search";
 import { withHeaderSpace, withNavigator, withProvider } from "../utils/decorators";
 import CenterView from "./CenterView";
@@ -63,17 +64,7 @@ import CenterView from "./CenterView";
     );
   })
   .add("RecentSearches", () => {
-    const props = {
-      navigation: {
-        dangerouslyGetParent: () => props.navigation,
-        replace: action("recentSearch-replace")
-      } as any,
-      searches: [
-        { query: "radha", categories: ["book"], timestamp: 1234},
-        { query: "search2", categories: ["harikatha", "movie"], timestamp: 2234},
-        { query: "radha", categories: ["book", "song"], timestamp: 233333}
-      ]
-    };
+    const props = recentSearchesTestData({ storybook: true });
     return (
       <RecentSearches {...props} />
     );
