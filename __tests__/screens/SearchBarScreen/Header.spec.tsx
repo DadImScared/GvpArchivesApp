@@ -1,13 +1,17 @@
 import * as React from "react";
 import * as renderer from "react-test-renderer";
 
-jest.useFakeTimers();
-
 import { Input } from "native-base";
+
 import { Header } from "../../../screens/SearchBarScreen/Header";
+import { makeTree } from "../../../utils/testData/search";
+import { TreeMaker } from "../Search.spec";
+
+jest.useFakeTimers();
 
 describe("Header", () => {
   let props: any;
+  let treeFactory: TreeMaker;
 
   beforeEach(() => {
     const navActions = {
@@ -20,14 +24,17 @@ describe("Header", () => {
       getQuerySuggestions: jest.fn(),
       navigation: navActions,
       query: "radha",
-      updateSearchQuery: jest.fn()
+      selectAllCategories: jest.fn(),
+      updateSearchQuery: jest.fn(),
     };
+    treeFactory = makeTree(Header, props);
   });
 
-  it("should get suggestions on mount if query exists", () => {
-    renderer.create(<Header {...props} />).toJSON();
-    expect(props.getQuerySuggestions).toHaveBeenCalledTimes(1);
-    expect(props.getQuerySuggestions).toBeCalledWith(props.query, props.categories);
+  it("should reset query and categories on mount", () => {
+    treeFactory();
+    expect(props.updateSearchQuery).toHaveBeenCalledWith("");
+    expect(props.getQuerySuggestions).toHaveBeenCalledTimes(0);
+    expect(props.selectAllCategories).toHaveBeenCalled();
   });
 
   it("should update search query on input", () => {
@@ -35,10 +42,8 @@ describe("Header", () => {
     const testInstance = tree.root;
     const instanceProps = testInstance.findByType(Input).props;
     instanceProps.onChangeText("new query");
-    expect(props.updateSearchQuery).toHaveBeenCalledTimes(1);
     expect(props.updateSearchQuery).toBeCalledWith("new query");
     jest.runAllTimers();
-    expect(props.getQuerySuggestions).toHaveBeenCalledTimes(2);
     expect(props.getQuerySuggestions).toHaveBeenCalledWith("new query", props.categories);
   });
 

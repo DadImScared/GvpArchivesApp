@@ -14,7 +14,10 @@ import { getQuerySuggestions } from "../../actions/search";
 import { IReducerState } from "../../reducers";
 import { getQueryId, getSearch, SearchStateAndActions } from "../../reducers/search";
 
-interface IProps extends NavigationScreenProps, SearchStateAndActions<"query" | "updateSearchQuery" | "categories"> {
+interface IProps extends NavigationScreenProps,
+  SearchStateAndActions<
+    "query" | "updateSearchQuery" | "categories" | "selectAllCategories"
+  > {
   getQuerySuggestions: (query: string, categories: string[]) => any;
 }
 
@@ -35,7 +38,6 @@ export class Header extends React.Component<IProps> {
   querySuggestions = _.debounce(this.props.getQuerySuggestions, 150);
 
   componentDidMount() {
-    const { query, categories } = this.props;
     this.didFocus = this.props.navigation.addListener("didFocus", () => {
       this.textRef && this.textRef._root.focus();
       BackHandler.addEventListener("hardwareBackPress", this.handleBackButton);
@@ -45,9 +47,8 @@ export class Header extends React.Component<IProps> {
       BackHandler.removeEventListener("hardwareBackPress", this.handleBackButton);
     });
 
-    if (query) {
-      this.props.getQuerySuggestions(query, categories);
-    }
+    this.props.updateSearchQuery("");
+    this.props.selectAllCategories();
   }
 
   componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<{}>, snapshot?: any): void {
@@ -109,6 +110,7 @@ const mapStateToProps = (state: IReducerState) => getSearch(state);
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   getQuerySuggestions: (...args: any[]) => dispatch((getQuerySuggestions as any)(...args)),
+  selectAllCategories: () => dispatch(search.selectAllCategories()),
   updateSearchQuery: (query: string) => dispatch(search.updateSearchQuery(query))
 });
 
