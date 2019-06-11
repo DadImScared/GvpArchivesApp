@@ -7,13 +7,13 @@ import { storiesOf } from "@storybook/react-native";
 import { View } from "native-base";
 
 import { SearchBarStack } from "../../navigation/MainTabNavigator";
-import { getQueryId } from "../../reducers/search";
 import { SearchHeader } from "../../screens";
 import HomeScreen from "../../screens/HomeScreen";
 import { Search } from "../../screens/Search";
 import { AutoComplete } from "../../screens/SearchBarScreen/AutoComplete";
 import Filter from "../../screens/SearchBarScreen/Filter";
 import { RecentSearches } from "../../screens/SearchBarScreen/RecentSearches";
+import { autoCompleteTestData } from "../../utils/testData/autoComplete";
 import { searchTestProps } from "../../utils/testData/search";
 import { withHeaderSpace, withNavigator, withProvider } from "../utils/decorators";
 import CenterView from "./CenterView";
@@ -57,17 +57,7 @@ import CenterView from "./CenterView";
     );
   })
   .add("AutoComplete", () => {
-    const props: any = {
-      autoComplete: { results: ["autocomplete-1", "autocomplete-2", "autocomplete-3"], timeToLive: 123344},
-      categories: ["book"],
-      isLoading: false,
-      navigation: {
-        dangerouslyGetParent: () => props.navigation,
-        replace: action("autoComplete-replace")
-      },
-      query: "radha",
-      queryId: getQueryId("radha", ["book"])
-    };
+    const props = autoCompleteTestData({ storybook: true });
     return (
       <AutoComplete {...props} />
     );

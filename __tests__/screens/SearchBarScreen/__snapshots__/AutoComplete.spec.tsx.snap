@@ -2,23 +2,19 @@
 
 exports[`AutoComplete should navigate onPress list item: navigation args 1`] = `
 Array [
-  Array [
-    "Search",
-    Object {
-      "categories": Array [
-        "book",
-      ],
-      "query": "suggestion-1",
-      "queryId": "suggestion-1-book",
-    },
-  ],
+  "Search",
+  Object {
+    "categories": Array [
+      "book",
+    ],
+    "query": "suggestion-1",
+    "queryId": "suggestion-1-book",
+  },
 ]
 `;
 
 exports[`AutoComplete should navigate onPress list item: updateSearchQuery args 1`] = `
 Array [
-  Array [
-    "suggestion-1",
-  ],
+  "suggestion-1",
 ]
 `;
