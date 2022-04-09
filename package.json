@@ -45,7 +45,7 @@
     "expo": "^31.0.2",
     "hoist-non-react-statics": "^3.3.0",
     "lodash": "^4.17.11",
-    "moment": "^2.23.0",
+    "moment": "^2.29.2",
     "native-base": "^2.10.0",
     "normalizr": "^3.3.0",
     "react": "16.5.0",
